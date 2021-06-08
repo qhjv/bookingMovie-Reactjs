@@ -1,0 +1,136 @@
+
+
+
+.pageViewer {
+    background:url(../../../../assets/images/backgroundPageMovieNow.jpg) no-repeat center;
+    background-size:cover;
+    position: relative;
+    padding: 50px 0;
+}
+.pageViewer .container {
+    max-width:95%!important;
+    position: relative!important;
+}
+.pageViewer .container .row{
+    width:100%;
+}
+.pageViewer--movies {
+    width: 20%!important;
+    max-width: 20%!important;
+}
+.pageViewer--movie--full{
+    width: 100%;
+    background: #ffffff;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.pageViewer--listMovie__img {
+    width: 100%;
+    height: 300px;
+}
+.pageViewer--listMovie__img img {
+    width: 100%;
+    height: 100%;
+}
+.pageViewer--movieContent--full {
+    padding: 10px 15px 15px;
+    height: 190px;
+    position: relative;
+}
+.pageViewer--listMovie__name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #4A4A4A;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    max-height: 53px;
+    line-height: 25px;
+}
+.pageViewer--listMovie__rate {
+    font-size: 15px;
+    font-weight: 600;
+    color: #888;
+    margin: 10px 0;
+}
+.pageViewer--listMovie__button {
+    margin-top: 50px;
+    width: 60%;
+    cursor: pointer;
+    border-radius: 0;
+    position: absolute;
+    left: 15px;
+    bottom: 17px;
+}
+.pageViewer--listMovie__button:hover{
+    transform: translateY(-7px);
+}
+.pageViewer--content{
+    position: relative;
+}
+.pageViewer--content_-logo{
+    position: absolute;
+    width: 200px;
+    top:-90px
+}
+.pageViewer--content_-logo img{
+    width: 100%;
+}
+.pageViewer--content__heading {
+    font-size: 35px;
+    font-weight: 700;
+    color: #4A4A4A;
+    font-family: 'Bungee Inline', cursive;
+}
+.pageViewer--search{
+    width:150%;
+    margin: 10px 0 35px 0;
+}
+.pageViewer--search__input {
+    width: 100%;
+    height: 40px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #333;
+}
+.pageViewer--button {
+    width: 100%;
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.pageViewer--button__all{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+    padding:5px;
+    color: #4A4A4A;
+    font-size: 17px;
+    transition: 0.5s;
+    text-align: end;
+    transition: 0.5s;
+    font-weight: 500;
+}
+.pageViewer--button__all i{
+    margin-left: 5px;
+    transition: 0.5s;
+}
+
+.pageViewer--button__all:hover{
+    color:var(--color-main1);
+    
+}
+.pageViewer--button__all:hover  i{
+    transform: rotate(90deg);
+}
+.pageViewer--button__all:hover .bonusI{
+    transform: rotate(-90deg);
+}
+.hidden{
+    display: none;
+}

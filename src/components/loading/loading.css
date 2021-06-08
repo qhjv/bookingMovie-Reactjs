@@ -1,0 +1,84 @@
+
+  
+  /* -----------------------------------------
+    =CSS3 Loading animations
+  -------------------------------------------- */
+  
+  /* =Elements style
+  ---------------------- */
+  .load-wrapp {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background: #00000085;
+    z-index: 99;
+  }
+  
+  
+  
+  .ring-2 {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto;
+    border: 4px solid var(--color-main1);
+    border-radius: 100%;
+  }
+  
+  .ball-holder {
+    position: absolute;
+    width: 12px;
+    height: 36px;
+    left: 13px;
+    top: 0px;
+  }
+  
+  .ball {
+    position: absolute;
+    top: -11px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: var(--color-main1);
+  }
+  
+  
+  
+ 
+  
+  
+  /* =Animate the stuff
+  ------------------------ */
+  
+  .load-5 {
+    top: 50%;
+    right: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+  .load-5 .ball-holder {
+    animation: loadingE 1.3s linear infinite;
+  }
+  
+ 
+  
+  .l-5 {
+    animation-delay: 0.96s;
+  }
+  
+  
+ 
+  @keyframes loadingE {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+ 

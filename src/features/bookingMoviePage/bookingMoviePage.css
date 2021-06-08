@@ -1,0 +1,170 @@
+.fullslide{
+    height:100vh;
+}
+.bookTheater {
+    width: 100%;
+    height: 77px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+.bookTheater--navbar {
+    text-align: center;
+    background: url(../../assets/images/backgroundBookTheater.jpg) no-repeat center;
+    background-size: cover;
+    width: 70px;
+    height: 100%;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 700;
+    transition: 0.5s;
+}
+.bookTheater--navbar__text{
+    transition: 0.5s;
+    margin-right: 25px;
+    transform: translateY(-100px);
+}
+.bookTheater--navbar:hover{
+    opacity: 1;
+    width: 190px;
+}
+.bookTheater--navbar:hover .bookTheater--navbar__text{
+    transform: translateY(0);
+
+}
+.bookTheater--navbar:before {
+    position: absolute;
+    content: "";
+    top: -45px;
+    right: -50px;
+    border: none;
+    border-top: 59px solid transparent;
+    border-bottom: 59px solid transparent;
+    border-right: 59px solid #FEB006;
+    transform: rotateZ(45deg);
+}
+.bookTheater--navbar__tap {
+    position: absolute;
+    right: 10px;
+    height: 40px;
+    top: 17px;
+    transition: 0.2s;
+}
+.bookTheater--navbar:hover .bookTheater--navbar__tap{
+    right: -5px;
+    animation: tap 2s forwards;
+}
+.bookTheater--navbar__tap img {
+    height: 100%;
+}
+@keyframes tap {
+    0% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+    10% {
+    -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    20% {
+    -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    30% {
+    -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    40% {
+    -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    50% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+    100% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+} 
+.bookTheater-div {
+    position: fixed;
+    top: 0;
+    transition: 0.5s;
+    left: -100%;
+    width: 70%;
+    height: 100%;
+    z-index: 10000;
+
+}
+.bookTheater-div::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0%;
+    background: linear-gradient(to right, #f3b95a 0%, var(--color-main1) 100%);
+    -webkit-transform: skewX(214deg);
+    -moz-transform: skewX(8deg);
+    -ms-transform: skewX(8deg);
+    -o-transform: skewX(8deg);
+    transform: skewX( 167deg);
+}
+.bookTheater-div:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0%;
+    background: url(../../assets/images/pattern.png);
+    -webkit-transform: skewX(214deg);
+    -moz-transform: skewX(8deg);
+    -ms-transform: skewX(8deg);
+    -o-transform: skewX(8deg);
+    transform: skewX( 167deg);
+    opacity: 0.13;
+}
+.bookTheater-div_close{
+    position: absolute;
+    top:10px;
+    right: -47px;
+    font-size: 30px;
+    color:#ffffff;
+    cursor: pointer;
+    z-index: 10001;
+
+}
+.bookTheater-overlay {
+    position: fixed;
+    transition: 0.7s;
+    top: 0;
+    left: -120%;
+    width: 110%;
+    height: 100%;
+    z-index: 9999;
+    background: rgb(0 0 0 / 70%);
+    -webkit-transform: skewX(214deg);
+    -moz-transform: skewX(8deg);
+    -ms-transform: skewX(8deg);
+    -o-transform: skewX(8deg);
+    transform: skewX( 167deg);
+}
+.hien{
+    opacity: 1;
+    visibility: visible;
+}
+.an{
+    opacity: 0;
+    visibility: hidden;
+}
+.bookTheaterdichuyen{
+    left:-77px;
+}
+.overlaydichuyen{
+    left: 0;
+}

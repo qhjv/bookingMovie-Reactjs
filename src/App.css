@@ -1,0 +1,72 @@
+/*--------------------
+Fonts
+----------------------*/ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('http://fonts.cdnfonts.com/css/segoe-script');
+
+
+
+/*--------------------
+Keyfame
+----------------------*/ 
+
+
+/* @keyframes  {
+    
+    
+} */
+
+/*--------------------
+Global css
+----------------------*/ 
+
+
+
+
+
+:root{
+    --color-main2:#DF0712;
+    --color-main1:#ffa00a;
+}
+body{
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif!important;
+}
+*{
+    margin:0;
+    padding:0;
+    outline: none!important;
+}
+.page{
+    background: url(./assets/images/backgroundmovie.jpg) no-repeat center;
+    background-size: cover;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+}
+a{
+    text-decoration: none!important;
+}
+a:focus, a:hover {
+    color: #ffffff!important;
+    text-decoration: none!important;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-main1); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-main1); 
+  }

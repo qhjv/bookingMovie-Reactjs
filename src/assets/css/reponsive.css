@@ -1,0 +1,44 @@
+
+@media (min-width: 1200px){
+
+    .page .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1313px;
+    }
+    .pageLogout .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1313px;
+    }
+}
+
+
+
+/*---------------
+ Mobile vs Ipad
+ ------------------ */
+
+
+
+@media (max-width:1023px){
+
+}
+
+
+
+/*-------------
+      Ipad     
+--------------*/
+
+
+@media(min-width:740px) and (max-width:1023px){
+
+}
+
+
+/*-------------
+    Mobile     
+--------------*/
+
+@media (max-width:739px){
+
+}
+
+

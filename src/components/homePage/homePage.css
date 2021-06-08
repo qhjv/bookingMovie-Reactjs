@@ -1,0 +1,150 @@
+/*--------------------
+Home
+----------------------*/ 
+
+
+.container{
+    z-index: 1;
+    height: 100%;
+    position: absolute;
+    top:0;
+}
+
+.backgroundBlur {
+    background: rgba(0,0,0,.4);
+    background-image: -webkit-gradient(linear,left bottom,left top,from(rgba(0,0,0,.8)),color-stop(60%,rgba(0,0,0,0)),to(rgba(0,0,0,.8)));
+    background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100%);
+    background-image: -moz- oldlinear-gradient(bottom,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100%);
+    background-image: -o-linear-gradient(bottom,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100%);
+    background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+/*--------------------
+Navbar
+----------------------*/ 
+
+.navbar{
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width:100%;
+}
+.navbar .navbar-brand {
+    float: left;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+img.logoWeb {
+    width: 130px;
+    cursor: pointer;
+}
+.navbar--right{
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+button.signinHome {
+    padding: 8px 20px;
+    background:var(--color-main1);
+    border: none;
+}
+button.signinHome:hover {
+    background:#fcbc33;
+}
+.signinHome--a{
+    color:#ffffff;
+}
+.signinHome--a i{
+    font-size: 13px;
+    margin-left: 5px;
+}
+section.contentHome {
+    height: 500px;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+form.formLogin {
+    display: flex;
+}
+.contentHome--intro{
+    max-width: 650px;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.contentHome--intro p{
+    margin-bottom: 0;
+    color: #ffffff;
+}
+.contentHome--intro small{
+    font-size: 15px;
+    color: #bebaba;
+    font-weight: 500;
+}
+.contentHome--email__input{
+    position: relative;
+    display: flex;
+}
+.inputError {
+    color: rgb(255, 160, 10);
+    text-align: left;
+    margin-bottom: -6px;
+    padding: 6px 3px;
+    font-size: 15px;
+}
+.nfTextField {
+    min-width: 400px!important;
+    /* height: 48px; */
+    /* padding: 10px!important; */
+    /* background: #ffffff; */
+    width: 100%;
+}
+.MuiOutlinedInput-input {
+    padding: 14px!important;
+    background: #ffffff!important;
+}
+.MuiFormControl-marginNormal {
+    margin: 0!important;
+}
+.placeLabel {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    color: rgb(140, 140, 140);
+    font-size: 14px;
+    transition: font 0.1s ease 0s, top 0.1s ease 0s, transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, -moz-transform 0.1s ease 0s, -o-transform 0.1s ease 0s;
+    transform: translateY(-50%);
+}
+label.input_id{
+    margin-bottom: 0;
+}
+fieldset.PrivateNotchedOutline-root-1.MuiOutlinedInput-notchedOutline {
+    display: none;
+}
+.MuiFormHelperText-contained {
+    margin:0!important;
+    padding-top: 5px;
+}
+.MuiFormHelperText-root.Mui-error {
+    color: #ffa00a!important;
+}
+.contentHome--email {
+    height: 47px;
+}
+.contentHome--email__input button.signinHome{
+    height:47px;
+}

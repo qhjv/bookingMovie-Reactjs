@@ -1,0 +1,124 @@
+/*--------------------
+Navbar
+----------------------*/ 
+
+.navbar{
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width:100%;
+    z-index: 999;
+}
+.navbarHome{
+    padding:0 50px!important;
+    font-size: 13px;
+    font-weight: 200;
+    background: transparent;
+    z-index: 999;
+}
+ul.navbar-nav {
+    flex: auto;
+    margin-left: 20px;
+}
+li.nav-item {
+    position: relative;
+    margin-right: 15px;
+    cursor: pointer;
+}
+/* li.nav-item:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    transition: navitem 0.5s;
+     */
+/* Circle behind */
+.nav-item a:before, .nav-item a:after
+{
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #fea00ac0;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    border-radius: 50%;
+    background: transparent;
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: -1;
+}
+
+.nav-item a:after
+{
+    border-width: 1px;
+    transition: all 0.4s;
+}
+
+.nav-item a:hover:before
+{
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) scale(1.1);
+}
+
+.nav-item a:hover:after
+{
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) scale(1.4);
+}
+
+
+
+
+.navbar.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+}
+.navbar .navbar-brand {
+    float: left;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+img.logoWeb {
+    width: 130px;
+}
+.navbar--right{
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.account {
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 13px!important;
+    font-weight: 200;
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+.account i {
+    margin-right: 6px;
+}
+.account h4 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 200;
+}
+.account .MuiSvgIcon-root {
+    height: 100%!important;
+    margin-right: 8px;
+}
+.MuiPaper-root.MuiMenu-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded{
+    top: 75px!important;
+    /* left: 1144px!important; */
+    width: 200px!important;
+}
+
+button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit {
+    border-radius: 0!important;
+}

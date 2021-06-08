@@ -1,0 +1,142 @@
+.pageMovie {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.slideHome {
+    height: 100vh;
+    position: relative;
+}
+.slideVideo {
+    position: absolute;
+    min-height: 100vh;
+}
+section.pageMovie video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(1.7);
+    object-fit: cover;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #d4a4148c;
+    mix-blend-mode: overlay;
+}
+.slideVideo--content {
+    z-index: 99;
+    width: 100%;
+    position: absolute;
+    bottom: 100px;
+    padding: 0 150px;
+    color: #ffffff;
+}
+.slideVideo--content__imdb.d-flex.align-items-center i {
+    font-size: 11px;
+    color: var(--color-main1);
+    margin-right: 3px;
+}
+.slideVideo--content__name {
+    font-size: 60px;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: 10px;
+    margin-top: 10px;
+}
+.slideVideo--content__digital {
+    font-weight: 200;
+    font-family: cursive;
+}
+.slideVideo--content__watch {
+    margin-top: 20px;
+}
+.slideVideo--content__watch-button {
+    height: 35px;
+    width: 56px;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    margin-right:10px ;
+    cursor: pointer;
+}
+.slideVideo--content__watch-title {
+    font-size: 13px;
+    font-weight: 100;
+}
+.slideVideo--content__watch-button:hover {
+    transition: 0.5s;
+    margin-right: 20px;
+    transform: scale(1.2);
+    color: var(--color-main1);
+    border: 1px solid var(--color-main1);
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .swiper-container.mySwiper {
+    position: absolute!important;
+    top: 0;
+    right: 0;
+    width: 100%!important;
+    min-height: 100vh!important;
+    overflow: hidden;
+}
+.swiper-button-next,.swiper-button-prev {
+    color: #ffffff!important;
+    font-size: 12px!important;
+}
+.swiper-button-next:hover,.swiper-button-prev:hover {
+    background: #00000063;
+}
+.swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after,
+.swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after {
+    font-size: 20px!important;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 5px!important;
+    background: #ffffff;
+    width: 14px!important;
+    height: 15px!important;
+}
+
+.MuiDialog-paperWidthSm {
+    max-width: 950px!important;
+}
+.MuiPaper-root {
+    background-color: #ffffffa3!important;
+}
+.MuiPaper-root.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.MuiPaper-elevation24.MuiPaper-rounded {
+    width: 90%;
+    height:80%;
+}
+.MuiDialog-root {
+    background: rgba(0, 0, 0, 0.94);
+}

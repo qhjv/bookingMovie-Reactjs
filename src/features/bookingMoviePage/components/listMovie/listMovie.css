@@ -1,0 +1,216 @@
+.renderMovies{
+    padding:20px 0 70px 0;
+}
+.renderMovies--nowShow{
+    margin-bottom: 10px;
+}
+
+.renderMovies--nowShow__title {
+    margin-top: 20px;
+    font-size: 25px;
+    height: 35px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--color-main1);
+    padding-left: 9px;
+    border-left: 5px solid var(--color-main1);
+}
+body .renderMovies  .container{
+    margin-top: 10px;
+    position: relative!important;
+}
+body .renderMovies  .container .row{
+}
+.slick-slider.slick-initialized{
+}
+.slick-track{
+}
+.slick-slide{
+    width: 1239px;
+    padding:30px;
+}
+body .renderMovies .container .row>* {
+    margin-right: calc(var(--bs-gutter-x)/ 2);
+    margin-left: calc(var(--bs-gutter-x)/ 2);
+    padding: 0;
+}
+.listMovie:hover{
+    transform:scale(1.1);
+    transition: 0.5s;
+}
+.listMovie--img{
+    width:100%;
+}
+.listMovie{
+    cursor: pointer;
+    position: relative;
+    max-width: 89%!important;
+    padding: 0!important;
+    z-index: 999;
+    flex: none!important;
+}
+.listMovie:after {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 5px inset rgb(0 0 0 / 90%);
+    transition: 0.6s ease;
+    transition-property: transform;
+    will-change: transform;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+.listMovie:hover:after{
+    transform:none;
+}
+
+.listMovie--action {
+    position: absolute;
+    color: #ffffff;
+    height: 100%;
+    width: 100%;
+    bottom: 25px;
+    left: 0;
+    opacity: 0;
+    transform: scale(0.6);
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    -ms-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    transition: all 0.6s;
+    transform-origin: top;
+    z-index: 9;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+.listMovie:hover .listMovie--action{
+    transform: none;
+    opacity: 1;
+}
+
+
+.listMovie--trailer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.listMovie--trailer-button{
+    height: 33px;
+    width: 50%;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    border: 1px solid var(--color-main1);
+    color: var(--color-main1);
+}
+.listMovie--trailer-button:hover {
+   transform: scale(1.1);
+}
+.listMovie--booking {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.listMovie--booking-button {
+    padding: 8px;
+    width: 70%;
+    font-size: 14px;
+    border-radius: 30px;
+    font-weight: 800;
+    color: #ffffff;
+    background: var(--color-main1);
+    height: 33px;
+    transition: 0.5s;
+}
+.listMovie--booking-button:hover {
+   transform: scale(1.2);
+}
+.listmovie--name {
+    margin-top: 70px;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: start;
+    width: auto;
+    padding: 25px;
+    flex-direction: column;
+}
+.listmovie--name h4{
+    font-size: 10px;
+    color:var(--color-main1)
+}
+.listMovie--img {
+    height: 250px;
+}
+.listMovie--rate {
+    position: absolute;
+    top: -7px;
+    left: -10px;
+    height: 30px;
+    background: rgba(255, 0, 0, 0.658);
+    font-size: 13px;
+    color: #ffffff;
+    padding: 5px;
+    z-index: 10;
+    border-radius: 2px;
+}
+.listMovie--rate i{
+    margin-left: 5px;
+    font-size: 10px;
+}
+.listMovie--rate:after {
+    position: absolute;
+    content: "";
+    bottom: -9px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid rgba(255, 0, 0, 0.658);
+}
+.slick-dots li button:before{
+    font-size: 10px!important;
+}
+.slick-dots li.slick-active button:before{
+    color:var(--color-main1)!important;
+}
+.slick-dots li button:hover:before{
+    color:var(--color-main1)!important;
+}
+.slick-prev, .slick-next {
+    width: 40px!important;
+    height: 40px!important;
+}
+.slick-prev:before, .slick-next:before {
+    font-size: 40px!important;
+    color: var(--color-main1)!important;
+    opacity: 0.4!important;
+}
+.MuiDialogTitle-root.DialogTitle {
+    position: absolute!important;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    color:black!important;
+}
+.MuiPaper-root {
+    background-color: #ffffffa3!important;
+}
+
+@media (min-width: 1200px){
+
+    .renderMovies .container{
+        max-width: 95%;
+    }
+}
