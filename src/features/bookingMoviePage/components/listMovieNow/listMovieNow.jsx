@@ -5,27 +5,35 @@ import logo2 from '../../../../assets/images/logo2.png'
 import movie from '../../../../assets/images/movie4.jpg'
 import { useSelector } from 'react-redux';
 import $ from "jquery";
+import { NGAY_HOM_NAY,NGAY_KET_THUC } from '../../../../constants/constants';
+import { Link } from 'react-router-dom';
+
+
+
 ListMovieNow.propTypes = {
     
 };
 
 function ListMovieNow(props) {
     const [clickBonus,setClickBonus]=useState(false)
-    const listMovieNow = useSelector(state=>state.movielistNow)
+    const listMovieNow = useSelector(state=>state.movielist)
     const [search, setSearch] = useState('');
     const typingTimeOutRef =  useRef(null)
     const array = []
 
+
+
     if(clickBonus == false && search =="" ){
-            listMovieNow.slice(0,15).filter((movie)=>{
+            listMovieNow.slice(0,31).filter((movie)=>{
                 if(document.querySelector(".pageViewer--bonus") !== null && document.querySelector(".pageViewer--button__all i") !==null){
                     document.querySelector(".pageViewer--bonus").textContent="Xem thêm"
                     document.querySelector(".pageViewer--button__all i").classList.remove("bonusI")
                     document.querySelector(".pageViewer--bonus").classList.remove("hidden")
                     document.querySelector(".pageViewer--button__all i").classList.remove("hidden")
                 }
+                
+                return  array.push(movie)
 
-                return array.push(movie)
             })
     }else if(clickBonus ==true && search ==""  ){
             listMovieNow.filter((movie)=>{
@@ -47,12 +55,9 @@ function ListMovieNow(props) {
             return array.push(movie)
         })
 }
-    console.log(array)
 
     const handleViewAll = () =>{
         setClickBonus(!clickBonus)
-        
-
     }
     const handleChangeSearch=(event)=>{
         if(typingTimeOutRef.current){
@@ -63,6 +68,38 @@ function ListMovieNow(props) {
             setSearch(nameSearch)
         },500)
     }
+    const handleClickBook = () => {
+        $(window).scrollTop(0);
+    }
+    const chuyendoiURL = (str) =>
+        {
+            // Chuyển hết sang chữ thường
+            str = str.toLowerCase();     
+        
+            // xóa dấu
+            str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
+            str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
+            str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
+            str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
+            str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
+            str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
+            str = str.replace(/(đ)/g, 'd');
+        
+            // Xóa ký tự đặc biệt
+            str = str.replace(/([^0-9a-z-\s])/g, '');
+        
+            // Xóa khoảng trắng thay bằng ký tự -
+            str = str.replace(/(\s+)/g, '-');
+        
+            // xóa phần dự - ở đầu
+            str = str.replace(/^-+/g, '');
+        
+            // xóa phần dư - ở cuối
+            str = str.replace(/-+$/g, '');
+        
+            // return
+            return str;
+        }
     return (
         <div className="pageViewer">
         <div className="container d-flex justify-content-between flex-column align-items-center">
@@ -79,10 +116,19 @@ function ListMovieNow(props) {
           </div>
           <div className="row pageViewer--listMovieNow">
               {(array ? array :[]).filter((movie)=>{
-                  return movie.tenPhim.toLowerCase().includes(search.toLowerCase())
-
+                    if( NGAY_HOM_NAY <= Date.parse(movie.ngayKhoiChieu)
+                        &&Date.parse(movie.ngayKhoiChieu) <= NGAY_KET_THUC
+                        &&search == ""
+                    ){
+                        return movie
+                    }
+                    else if(search!==""){
+                        return movie.tenPhim.toLowerCase().includes(search.toLowerCase()) 
+                        && NGAY_HOM_NAY <= Date.parse(movie.ngayKhoiChieu)
+                        && Date.parse(movie.ngayKhoiChieu) <= NGAY_KET_THUC
+                    }
               }).map((movie)=>(
-
+                
                 <div key={movie.maPhim} className="pageViewer--movies col-md-3 col-lg-3">
                     <div className="pageViewer--movie--full">
                         <div className="pageViewer--listMovie__img">
@@ -91,7 +137,12 @@ function ListMovieNow(props) {
                         <div className="pageViewer--movieContent--full">
                         <div className="pageViewer--listMovie__name">{movie.tenPhim} </div>
                         <div className="pageViewer--listMovie__rate ">{movie.danhGia}/10 rating</div>
-                        <div className="pageViewer--listMovie__button listMovie--booking-button d-flex justify-content-center align-items-center">Book Now</div>
+                        <Link onClick={handleClickBook}
+                            to={`/thong-tin-phim/${movie?.maPhim}`}
+                            className="pageViewer--listMovie__button listMovie--booking-button d-flex justify-content-center align-items-center"
+                        >
+                                Book Now
+                        </Link>
                         </div>
                     </div>
                 </div>

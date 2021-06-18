@@ -1,0 +1,48 @@
+
+.theaterList {
+    margin-left: 28px;
+    margin-top: 20px;
+}
+.theaterList--name {
+}
+.theaterList--name select {
+    cursor: pointer;
+    color: #777;
+    transition: 0.5;
+    border: none;
+    width: 50%;
+}
+
+.theaterList .theaterList--name .form-select:focus{
+    border-color:none;
+    box-shadow: none;
+    color:#000000;
+
+}
+.theaterList--name label {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.theaterList--address {
+    width: 50%;
+    height: 100%;
+    margin-left: 20px;
+    padding-right: 10px;
+    color: #ffffff;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.theaterList--address h4 {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0;
+}
+.theaterList--address i{
+    margin-right: 12px;
+    font-size: 20px;
+}
+.theaterList--select {
+    display: flex;
+    align-items: center;
+}

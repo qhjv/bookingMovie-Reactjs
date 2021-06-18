@@ -2,7 +2,7 @@
     height:100vh;
 }
 .bookTheater {
-    width: 100%;
+    width: 50%;
     height: 77px;
     position: fixed;
     top: 0;
@@ -58,7 +58,6 @@
     right: 10px;
     height: 40px;
     top: 17px;
-    transition: 0.2s;
 }
 .bookTheater--navbar:hover .bookTheater--navbar__tap{
     right: -5px;
@@ -167,4 +166,14 @@
 }
 .overlaydichuyen{
     left: 0;
+}
+.bookTheater-div_full{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 20px 0 50px 100px;
+    z-index: 1;
+}
+.bookTheater-div_full .container{
+    position: relative!important;
 }

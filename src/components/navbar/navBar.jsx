@@ -8,6 +8,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import Loading from '../../components/loading/loading';
+import { useHistory } from "react-router-dom";
+
 
 
 NavBar.propTypes = {
@@ -19,6 +21,8 @@ function NavBar(props) {
     const [anchorE2, setAnchorE2] = useState(null);
     const open = Boolean(anchorEl);
     const [loading,setLoading]=useState(false)
+    const history = useHistory();
+
    
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
@@ -34,6 +38,7 @@ function NavBar(props) {
             localStorage.removeItem('user');
             props.setUser();
             setAnchorE2(null); 
+            history.push("/");
         }, 1000);
     }
     return (
@@ -50,13 +55,16 @@ function NavBar(props) {
                         <a className="nav-link" >Phim</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" >Rạp phim</a>
+                        <a className="nav-link" >Phim đang chiếu</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" >Ứng dụng</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" >Tin tức</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" >Ứng dụng</a>
+                        <a className="nav-link" >Liên hệ</a>
                     </li>
                 </ul>
                 {/*Tài khoản*/}

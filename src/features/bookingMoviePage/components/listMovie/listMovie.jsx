@@ -8,18 +8,20 @@ import "slick-carousel/slick/slick-theme.css";
 import moviesApi from '../../../../api/moviesApi';
 import TrailerMoviesView from './components/trailerMoviesView/trailerMoviesView';
 import { useDispatch } from 'react-redux';
-import { getMovieNow } from './movieNowSlice';
-import { getMovieSoon } from './movieSoonSlice';
-
+import { getMovie } from './listMovieSlice';
+import { NGAY_HOM_NAY,NGAY_KET_THUC } from '../../../../constants/constants';
+import { Link } from 'react-router-dom';
+import $ from "jquery"
+import Loading from '../../../../components/loading/loading';
 
 ListMovie.propTypes = {
     
 };
 
 function ListMovie(props) {
-    const [moviesNow, setMoviesNow] = useState([])
-    const [moviesSoon, setMoviesSoon] = useState([])
+    const [movies, setMovies] = useState([])
     const dispatch = useDispatch()
+    const [loading,setLoading] = useState(false)
     
     var settings = {
         dots: false,
@@ -32,21 +34,27 @@ function ListMovie(props) {
       };
       
     useEffect(() => {
-        const fetchMovies = async () => {
-            const moviesListNow = await moviesApi.getmoviesNowShow()
-            const moviesListSoon = await moviesApi.getmoviesComeSoon()
-            setMoviesNow(moviesListNow)
-            setMoviesSoon(moviesListSoon)
-            const action1 = getMovieNow(moviesListNow)
-            dispatch(action1)
-            const action2 = getMovieSoon(moviesListSoon)
-            dispatch(action2)
-        }
-        fetchMovies()
+        (async () => {
+            
+            try {
+                setLoading(true)
+                const moviesList = await moviesApi.getmoviesShow()
+                setMovies(moviesList)
+                const action = getMovie(moviesList)
+                dispatch(action)
+                setLoading(false)
+            } catch (error) {
+                console.log("failed:",error)
+            }
+        })();
     }, [])
+    const handleClickBook = () => {
+        $(window).scrollTop(0);
+    }
     
     return (
         <div className="renderMovies">
+            {loading ? (<Loading onLoad={loading} />): (<></>)}
             <div className="renderMovies--nowShow">
                 <div className="renderMovies--nowShow__title">
                     PHIM ĐANG CHIẾU
@@ -54,7 +62,13 @@ function ListMovie(props) {
                 <div className="container">
                     <div className="row d-flex justify-content-around align-items-center">
                     <Slider {...settings}>
-                        {moviesNow.slice(0,10).map((movie)=>(
+                        {movies.filter((movie)=>{
+                            if( NGAY_HOM_NAY <= Date.parse(movie.ngayKhoiChieu)
+                            &&Date.parse(movie.ngayKhoiChieu) <= NGAY_KET_THUC
+                            ){
+                                return movie
+                            }
+                        }).slice(0,10).map((movie)=>(
 
                             <div key={movie.maPhim} className="d-flex align-items-center justify-content-around">
                                 <div className="listMovie col-md-2 col-lg-2">
@@ -74,9 +88,12 @@ function ListMovie(props) {
                                                 <TrailerMoviesView trailer={movie.trailer}></TrailerMoviesView>
                                             </div>
                                             <div className="listMovie--booking">
-                                                <div className="listMovie--booking-button d-flex justify-content-center align-items-center">
+                                                <Link 
+                                                    onClick={handleClickBook}
+                                                    to={`/thong-tin-phim/${movie?.maPhim}`}
+                                                    className="listMovie--booking-button d-flex justify-content-center align-items-center">
                                                     Book Now
-                                                </div>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +115,11 @@ function ListMovie(props) {
                 <div className="container">
                     <div className="row d-flex justify-content-around align-items-center">
                         <Slider {...settings}>
-                            {moviesSoon.slice(15,25).map((movie)=>(
+                            {movies.filter((movie)=>{
+                                if(  NGAY_KET_THUC < Date.parse(movie.ngayKhoiChieu) ){
+                                    return movie
+                                }
+                            }).slice(0,7).map((movie)=>(
 
                                 <div key={movie.maPhim} className="d-flex align-items-center justify-content-around">
                                     <div className="listMovie col-md-2 col-lg-2">
@@ -118,9 +139,12 @@ function ListMovie(props) {
                                                     <TrailerMoviesView trailer={movie.trailer}></TrailerMoviesView>
                                                 </div>
                                                 <div className="listMovie--booking">
-                                                    <div className="listMovie--booking-button d-flex justify-content-center align-items-center">
+                                                    <Link 
+                                                        onClick={handleClickBook}
+                                                        to={`/thong-tin-phim/${movie?.maPhim}`}
+                                                        className="listMovie--booking-button d-flex justify-content-center align-items-center">
                                                         Book Now
-                                                    </div>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>

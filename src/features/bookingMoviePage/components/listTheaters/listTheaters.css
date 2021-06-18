@@ -1,0 +1,45 @@
+.theater {
+    border-radius: 9px;
+    margin-left: 41px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8%!important;
+    max-width: 8%!important;
+    opacity: 0.35;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.theater .active:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #ffffff;
+}
+.theater:hover{
+    opacity: 1;
+}
+.theaters .active{
+    opacity: 1;
+    filter: drop-shadow(2px 4px 6px rgb(3, 3, 3));
+
+}
+.theater img {
+    width: 46px;
+}
+.bookTheater-div_title {
+    font-weight: 700;
+    font-size: 23px;
+    font-family: inherit;
+    color: #ffffff;
+    margin-bottom: 20px;
+    padding-left: 12px;
+    border-left: 4px solid #ffffff;
+}

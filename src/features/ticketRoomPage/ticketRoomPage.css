@@ -1,0 +1,192 @@
+
+.bookTicketMovieFull{
+    background: #1e2729;
+    position: relative;
+    z-index: 0;
+    height:100%;
+}
+.bookTicketMoviePage .container {
+    position: relative!important;
+}
+.bookTicketMovieFull::before{
+    content: "";
+    position: absolute;
+    width:100%;
+    height:100%;
+    background: url(../../assets/images/pattern.png);
+    z-index: -1;
+}
+.bookTicketMoviePage {
+    color: #c5c3c3;
+}
+
+.bookTicketMovie--countdown {
+    margin: 30px 0;
+    text-align: center;
+}
+
+
+.bookTicketMovie--left .MuiStepper-root{
+    background: transparent!important;
+    color: #c5c3c3!important;
+
+}
+.bookTicketMovie--left .MuiTypography-root,
+.bookTicketMovie--left .MuiStepIcon-root {
+    color: #c5c3c3!important;
+}
+.bookTicketMovie--left .MuiTypography-root {
+    font-size: 20px!important;
+}
+.bookTicketMovie--left .MuiSvgIcon-root.MuiStepIcon-active{
+    transform: scale(1.3)!important;
+}
+.bookTicketMovie--left .MuiStepLabel-active,
+.bookTicketMovie--left .MuiStepIcon-root.MuiStepIcon-active,
+.bookTicketMovie--left .MuiStepLabel-completed,
+.bookTicketMovie--left .MuiStepIcon-root.MuiStepIcon-completed{
+    color: var(--color-main1)!important;
+}
+.bookTicketMovie--left .MuiStepLabel-iconContainer{
+    padding-right: 20px!important;
+}
+.bookTicketMovie--left .MuiStepContent-root{
+    padding:30px;
+}
+.bookTicketMovie--left .makeStyles-actionsContainer-3,
+.bookTicketMovie--left .makeStyles-actionsContainer-7 {
+    margin-top: 70px!important;
+    float: right!important;
+}
+.bookTicketMovie--left .MuiButtonBase-root.MuiButton-containedPrimary{
+    background: var(--color-main1)!important;
+}
+.bookTicketMovie--left .MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-2,
+.bookTicketMovie--left .MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-6 {
+    background: #ffffff!important;
+}
+
+
+
+
+
+
+
+
+
+
+.bookTicketMovie--screen {
+    width: 100%;
+}
+.bookTicketMovie--screen img{
+    width: 100%;
+}
+.bookTicketMovie--seats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px 50px 50px ;
+}
+.bookTicketMovie--seat {
+    color: #3f464b;
+    font-size: 23px;
+    max-width: 6%!important;
+    width: 6%!important;
+}
+.bookTicketMovie--seat i{
+    cursor: pointer;
+}
+.bookTicketMovie--seats .normal,
+.bookTicketMovie--tutorial-normal{
+    color: #3f464b;
+}
+.bookTicketMovie--seats .vip,
+.bookTicketMovie--tutorial-vip{
+    color:#2f87b6;
+}
+.bookTicketMovie--seats .sold,
+.bookTicketMovie--tutorial-sold{
+    color:#999!important;
+}
+.bookTicketMovie--seats .sold i{
+
+    cursor: not-allowed;
+}
+.bookTicketMovie--seats .active,
+.bookTicketMovie--tutorial-active{
+    color:var(--color-main1)
+}
+.bookTicketMovie--tutorials.row{
+    
+}
+.bookTicketMovie--tutorial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bookTicketMovie--tutorial i{
+    font-size:20px;
+}
+.bookTicketMovie--tutorial__text{
+    font-size: 15px;
+    font-weight: 500;
+    margin-top:5px
+}
+
+
+
+.bookTicketMovie--right{
+    background:#ffffff9d;
+    padding:30px!important;
+    margin-bottom: 50px;
+    height: 100%;
+    filter: drop-shadow(22px 20px 15px black);
+}
+.bookTicketMovie--img img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.bookTicketMovie--right_list{
+    margin-bottom: 5px;
+}
+
+.bookTicketMovie--infoTheater{
+    margin: 20px 0;
+}
+.bookTicketMovie--right_list .detailPage--info__detail-left{
+    color: #555;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+.bookTicketMovie--right_list .detailPage--info__detail-right{
+    color: #222;
+    font-weight: 600;
+    font-size: 17px;
+}
+.bookTicketMovie--price .detailPage--info__detail-right{
+    font-size: 20px;
+}
+.bookTicketMoviePage--title {
+    font-size: 17px;
+    padding-left: 7px;
+    border-left: 2px solid var(--color-main1);
+    margin-bottom: 15px;
+    color: var(--color-main1);
+}
+.bookTicketMovie--countdown__time{
+    color:var(--color-main1)
+}
+.detailPage--info__detail-seats{
+    display: flex;
+    flex-wrap: wrap;
+    width:70%;
+    justify-content: flex-end;
+}
+.detailPage--info__detail-price {
+    font-size: 30px!important;
+    color:var(--color-main2)!important;
+}
+.bookTicketMovie--price{
+    margin-top: 25px;
+}

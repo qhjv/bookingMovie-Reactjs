@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userLoginReducter from '../features/auth/login/loginSlice'
 import emailHomeReducter from '../components/homePage/homePageSlice' 
-import movieListNowReducter from '../features/bookingMoviePage/components/listMovie/movieNowSlice' 
-import movieListSoonReducter from '../features/bookingMoviePage/components/listMovie/movieSoonSlice' 
+import movieListReducter from '../features/bookingMoviePage/components/listMovie/listMovieSlice' 
+import ticketRoomReducter from '../features/ticketRoomPage/ticketRoomSlice'
 
 const rootReducer ={
     user:userLoginReducter,
     emailfromhome:emailHomeReducter,
-    movielistNow:movieListNowReducter,
-    movielistSoon:movieListSoonReducter,
+    movielist:movieListReducter,
+    ticketroom:ticketRoomReducter
 }
 const store = configureStore({
     reducer:rootReducer,

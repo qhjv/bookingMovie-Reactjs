@@ -15,7 +15,11 @@
     background: #00000085;
     z-index: 99;
   }
-  
+  .load-height{
+    position: relative;
+    width: 100%;
+    height:100vh;
+  }
   
   
   .ring-2 {

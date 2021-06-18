@@ -10,6 +10,8 @@ import { Redirect, Route, Switch, useRouteMatch } from 'react-router';
 import { useSelector } from 'react-redux';
 import Page404 from './components/404page/404Page';
 import Loading from './components/loading/loading';
+import DetailMoviePage from './features/detailMoviePage/detailMoviePage';
+import TicketRoomPage from './features/ticketRoomPage/ticketRoomPage';
 
 
 function App() {
@@ -37,8 +39,19 @@ function App() {
       {loading ? (<Loading  onLoad={loading} />): (<></>)}
         {user !==null ? (
           <>
-            <BookingMoviePage setUserState={()=>setUser(null)}></BookingMoviePage>
-            <DieuHuongURL></DieuHuongURL>
+            <Switch>
+              <Route exact path="/">
+                <BookingMoviePage setUserState={()=>setUser(null)}></BookingMoviePage>
+              </Route>
+              <Redirect from="/dangnhap" to="/" />
+              <Redirect from="/dangky" to="/"/>
+              <Route path="/thong-tin-phim/:id">
+                <DetailMoviePage setUserState={()=>setUser(null)} ></DetailMoviePage>
+              </Route>
+              <Route path="/dat-ve/:id">
+                <TicketRoomPage setUserState={()=>setUser(null)} ></TicketRoomPage>
+              </Route>
+            </Switch>
           </>
         ):(
           <>

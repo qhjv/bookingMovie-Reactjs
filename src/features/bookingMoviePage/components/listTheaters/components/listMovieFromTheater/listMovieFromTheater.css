@@ -1,0 +1,97 @@
+
+.theaterMovies {
+    transform: scaleX(-1);
+    color: #ffffff;
+    padding: 0 30px 0 100px;
+    overflow-y: scroll;
+    height: 70%;
+    margin-top: 20px;
+}
+.theaterMovie--name {
+    font-size: 25px;
+    font-weight: 700;
+}
+.theaterMovie {
+    transform: scaleX(-1);
+    margin-bottom: 20px;
+}
+
+
+.theaterMovies::-webkit-scrollbar {
+    width: 2px;
+    position: absolute;
+    left: 0;
+  }
+  
+  /* Track */
+  .theaterMovies::-webkit-scrollbar-track {
+    background: transparent;
+  }
+   
+  /* Handle */
+  .theaterMovies::-webkit-scrollbar-thumb {
+    background: #ffffff; 
+
+  }
+.theaterMovie--hour {
+    height: 32px;
+    width: 10%!important;
+    max-width: 10%!important;
+    margin: 20px 0 5px 20px;
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid;
+    border-radius: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+.theaterMovie--hour:hover{
+    border: 2px solid var(--color-main2);
+    background: var(--color-main2);
+    transform: translateY(-5px);
+}
+.theaterMovie--info {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    margin-top: 3px;
+}
+.theaterMovie--times {
+    margin-top: 20px;
+}
+.theaterMovie--time{
+    margin-bottom: 20px;
+}
+.theaterMovie--times h5 {
+    width: 140px;
+    background: #fff;
+    color: var(--color-main1);
+    font-size: 15px;
+    margin-left: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 0;
+    margin-bottom: 0;
+}
+.theaterMovie--times h5 i{
+    margin-left: 10px;
+    transform: rotate(-90deg);
+    transition: 0.5s;
+}
+.theaterMovie--times h5:hover i{
+    transform: rotate(0);
+
+}
+.theaterMovie--hours{
+    transition:0.5s;
+}
+.theaterMovie--hours.active{
+    display: block;
+}

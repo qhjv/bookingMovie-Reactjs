@@ -10,6 +10,7 @@
 .pageViewer .container {
     max-width:95%!important;
     position: relative!important;
+    border-top: 1px solid var(--color-main1);
 }
 .pageViewer .container .row{
     width:100%;
@@ -44,7 +45,7 @@
     overflow: hidden;
     display: -webkit-box;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     width: 100%;
     max-height: 53px;
@@ -84,6 +85,7 @@
     font-weight: 700;
     color: #4A4A4A;
     font-family: 'Bungee Inline', cursive;
+    z-index: 2;
 }
 .pageViewer--search{
     width:150%;
@@ -96,6 +98,15 @@
     text-align: center;
     font-size: 14px;
     border: 1px solid #333;
+}
+.pageViewer--content.d-flex.justify-content-between.flex-column.align-items-center:before {
+    content: "";
+    top: -3px;
+    width: 163%;
+    height: 3px;
+    position: absolute;
+    background: #ffffff;
+    z-index: 1;
 }
 .pageViewer--button {
     width: 100%;

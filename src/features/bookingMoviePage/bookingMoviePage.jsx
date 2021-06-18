@@ -8,6 +8,7 @@ import ListMovie from './components/listMovie/listMovie';
 import ListMovieNow from './components/listMovieNow/listMovieNow';
 import img1 from '../../../src/assets/images/tap2.png'
 import $ from 'jquery'
+import ListTheaters from './components/listTheaters/listTheaters';
 
 
 BookingMoviePage.propTypes = {
@@ -15,8 +16,8 @@ BookingMoviePage.propTypes = {
 };
 
 function BookingMoviePage(props) {
+    
     const vitriMH= $(window).scrollTop()
-    console.log(vitriMH)
     $(window).on("scroll",function(){
         if($(this).scrollTop() >600){
             $(".bookTheater").addClass("hien")
@@ -63,6 +64,10 @@ function BookingMoviePage(props) {
                     onClick={handleCloseBookTheater}
                 >
                     <i className="far fa-times-circle" />
+                </div>
+                <div className="bookTheater-div_full">
+
+                    <ListTheaters></ListTheaters>
                 </div>
             </div>
             <div class="bookTheater-overlay"
