@@ -35,10 +35,6 @@ function TicketChooseSeats(props) {
     }, [seats])
     return (
         <>
-           <div className="bookTicketMovie--countdown">
-                                <div className="bookTicketMovie--countdown__title">Thời gian giữ ghế</div>
-                                <div className="bookTicketMovie--countdown__time">5:00</div>
-                            </div>
                             <div className="bookTicketMovie--screen">
                                 <img src={Screen} />
                             </div>

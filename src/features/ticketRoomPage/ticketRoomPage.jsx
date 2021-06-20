@@ -16,7 +16,11 @@ import Loading from "../../components/loading/loading"
 import { useSelector } from 'react-redux';
 import Swal from "sweetalert2";
 import { useDispatch } from 'react-redux';
-import clearSeats from './ticketRoomSlice'
+import PayPal from './components/ticketPay/paypal';
+import Checkbox from '@material-ui/core/Checkbox';
+import { useHistory } from "react-router-dom";
+
+
 
 TicketRoomPage.propTypes = {
     
@@ -47,40 +51,44 @@ function getSteps() {
 function TicketRoomPage(props) {
     const classes = useStyles();
     const [activeStep, setActiveStep] = useState(0);
-    const [gia,setGia] = useState("0")
-    const [check,setCheck] = useState(true)
-    const dispatch = useDispatch()
+    const [checkPay, setCheckPay] = useState(false);
+    const [timeM, setTimeM] = useState(5);
+    const [timeS, setTimeS] = useState(0);
+    const [temp, setTemp] = useState(0);
 
-
+    const history = useHistory();
     const {
         params: { id }
     } = useRouteMatch()
 
     const tickets = useSelector(state=>state.ticketroom)
-
+    useEffect(() => {
+        handleTime();
+    }, [temp]);
     const {ticket,loading}= useTicketInfo(id)
-    // useEffect(() => {
-    //     const action = clearSeats({
-    //         bookingSeat:[],
-    //         totalPrice:0,
-    //         totalPriceSeat:0,
-    //         totalPriceCombo:0
-    //     })
-    //     dispatch(action)
-    // }, [ticket])
+    
     if (!ticket) {
         return null;
     }
     const steps = getSteps();
     
     const handleNext = () => {
-        if(tickets.bookingSeat.length >0 ){
+        if(tickets.bookingSeat.length >0 && activeStep!== 1 ){
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        }else{
+            setCheckPay(false)
+        }else if(tickets.bookingSeat.length <= 0){
             Swal.fire({
                 icon: "warning",
                 title: "Chưa chọn ghế",
             });
+        }else if(checkPay == false){
+            Swal.fire({
+                icon: "warning",
+                title: "Bạn chưa thanh toán",
+            });
+        }else if(checkPay == true && activeStep == 1){
+            setActiveStep((prevActiveStep) => prevActiveStep + 1);
+            
         }
     };
 
@@ -92,8 +100,53 @@ function TicketRoomPage(props) {
     const handleClickFinish = () => {
         console.log("hihi")
     }
-   
-
+    const handlePaySoon =()=>{
+        Swal.fire({
+            icon: "success",
+            title: "Bạn đã chọn giao dịch trực tiếp tại quầy",
+        });
+        setCheckPay(true) 
+    }
+    const tranSuccess = (check) =>{
+        setCheckPay(check)
+    }
+    
+      const handleTime = () => {
+        let tempTime = timeS;
+        let time = setInterval(() => {
+          tempTime = tempTime - 1;
+          if (tempTime === -1) {
+            setTimeM(a => a - 1);
+            tempTime = 59
+          }
+          setTimeS(tempTime);
+          if (document.getElementById("timePhut")) {
+            var timeM1 = document.getElementById("timePhut").innerText;
+          }
+          if (Number(timeM1) === 0 && tempTime === 0) {
+            clearInterval(time);
+          }
+          if (Number(timeM1) === 0 && tempTime === 0) {
+            Swal.fire({
+              title: 'Bạn có muốn tiếp tục ?',
+              text: "Hết thời gian đặt ghế",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: 'var(--color-main1)',
+              cancelButtonColor: 'var(--color-main2)',
+              confirmButtonText: 'Có'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                setTimeM(5);
+                setTemp(temp + 1);
+              } else {
+                history.push({ pathname: "/" });
+              }
+            })
+          }
+    
+        }, 1000);
+      };
     function getStepContent(step) {
         switch (step) {
           case 0:
@@ -103,12 +156,39 @@ function TicketRoomPage(props) {
                 </>
             );
           case 1:
-            return 'An ad group contains one or more ads which target a shared set of keywords.';
+            return (
+                <div className="payTickets">
+                    <div className="container ">
+                        <div className="row d-flex flex-column justify-content-between align-items-center">
+                                
+                                <div class="payTicket-again" onClick={handlePaySoon}>
+                                        Thanh toán tại quầy
+                                </div>
+                                <div className="payTicket payTicket-paypal ">
+                                    <PayPal 
+                                        price={(Math.round(tickets.totalPrice / 23000 * 100) / 100)}
+                                        tranSuccess={tranSuccess}
+                                    ></PayPal>
+                                </div>
+                                <div className="payTicket-rules">
+                                    <Checkbox color="primary" disabled checked inputProps={{ 'aria-label': 'disabled checked checkbox' }} />
+                                    Tôi đồng ý điều khoản sử dụng và vé mua không thể hoàn lại .
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            );
           case 2:
-            return `Try out different ad text to see what brings in the most customers,
-                    and learn how to enhance your ads using features like ad extensions.
-                    If you run into any problems with your ads, find out how to tell if
-                    they're running and how to resolve approval issues.`;
+            return (
+                <>
+                    <p>
+                        Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.<br></br>
+                        Hãy kiểm tra email để biết kết quả giao dịch.<br></br>
+                        Chúc bạn có một buổi xem phim vui vẻ , hẹn gặp các bạn tại rạp.<br></br>
+                        Bạn muốn kiểm tra lịch sử giao dịch hãy nhấn nút bên dưới.
+                    </p>
+                </>
+            );
           default:
             return 'Unknown step';
         }
@@ -125,15 +205,20 @@ function TicketRoomPage(props) {
                                 <Link class="breadcrumb-nameMovie" color="inherit" to="/" >
                                     Trang chủ
                                 </Link>
-                                <Link class="breadcrumb-nameMovie" color="inherit" to="/" >
-                                    Phim
-                                </Link>
+                                
                                 <Typography>Đặt vé </Typography>
                             </Breadcrumbs>
                         </div>
                     <div className="row justify-content-between">
                     <div className="bookTicketMovie--left col-md-9 col-lg-9">
-                    
+                            <div className="bookTicketMovie--countdown">
+                                <div className="bookTicketMovie--countdown__title">Thời gian giữ ghế</div>
+                                <div className="bookTicketMovie--countdown__time">
+                                    <span id="timePhut"> 0{timeM}</span>
+                                    <span>&nbsp;:&nbsp;</span>
+                                    <span>{timeS}</span>
+                                </div>
+                            </div>
                         <div className={classes.root }>
                                 <Stepper activeStep={activeStep} orientation="vertical">
                                     {steps.map((label, index) => (
