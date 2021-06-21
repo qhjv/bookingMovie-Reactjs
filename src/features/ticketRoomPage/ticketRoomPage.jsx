@@ -19,6 +19,7 @@ import { useDispatch } from 'react-redux';
 import PayPal from './components/ticketPay/paypal';
 import Checkbox from '@material-ui/core/Checkbox';
 import { useHistory } from "react-router-dom";
+import $ from "jquery";
 
 
 
@@ -141,6 +142,7 @@ function TicketRoomPage(props) {
                 setTemp(temp + 1);
               } else {
                 history.push({ pathname: "/" });
+                $(window).scrollTop(0);
               }
             })
           }
