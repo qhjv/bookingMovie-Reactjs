@@ -45,13 +45,13 @@ function ListTheaterName(props) {
                         <i className="fas fa-map-marked-alt" />
                         
                             {(listTheaterName?listTheaterName:[]).filter((theater,index)=>{
-                                if(theater.maCumRap == getAndress){
+                                if(theater.maCumRap === getAndress){
                                     return theater
-                                }else if(getAndress ==""){
-                                    return theater.maCumRap == listTheaterName[0].maCumRap 
+                                }else if(getAndress ===""){
+                                    return theater.maCumRap === listTheaterName[0].maCumRap 
                                 }
                             }).map((theater,index)=>(
-                                <h4 key={index}>{theater.diaChi}</h4>
+                                <h4 key={theater.diaChi}>{theater.diaChi}</h4>
                             ))}
                     </div>
                 </div>

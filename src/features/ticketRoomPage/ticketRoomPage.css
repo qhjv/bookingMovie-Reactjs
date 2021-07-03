@@ -64,6 +64,12 @@
   .MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-6 {
   background: #ffffff !important;
 }
+button.MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-2.Mui-disabled.Mui-disabled {
+  display: none;
+}
+button.MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-6.Mui-disabled.Mui-disabled {
+  display: none;
+}
 .payTickets{
     margin-top:50px
 }

@@ -9,6 +9,7 @@ import Menu from '@material-ui/core/Menu';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import Loading from '../../components/loading/loading';
 import { useHistory } from "react-router-dom";
+import $ from "jquery";
 
 
 
@@ -40,6 +41,10 @@ function NavBar(props) {
             setAnchorE2(null); 
             history.push("/");
         }, 1000);
+    }
+    const handleHistory=()=>{
+        history.push({ pathname: "/lich-su-dat-ve" });
+        $(window).scrollTop(0);
     }
     return (
         <div className="fullnavbar">
@@ -95,7 +100,7 @@ function NavBar(props) {
                             onClose={handleClose}
                         >
                             <MenuItem onClick={handleClose}>Thông tin cá nhân</MenuItem>
-                            <MenuItem onClick={handleClose}>Lịch sử đặt vé</MenuItem>
+                            <MenuItem onClick={handleHistory}>Lịch sử đặt vé</MenuItem>
                             <MenuItem onClick={handleLogOut} style={{color:"red"}}>Log Out</MenuItem>
                         </Menu>
                     </div>

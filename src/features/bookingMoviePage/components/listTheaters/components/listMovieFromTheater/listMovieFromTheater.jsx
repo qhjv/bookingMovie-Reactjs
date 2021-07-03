@@ -34,7 +34,7 @@ function ListMovieFromTheater({maRap,getAndress}) {
     return (
         <div className="theaterMovies">
             {movieFromTheater.map((movie,index)=>(
-                <div className="theaterMovie">
+                <div className="theaterMovie" key={movie.tenPhim}>
                     <div className="theaterMovie--content">
                         <div className="theaterMovie--name">{movie.tenPhim}</div>
                         <div className="theaterMovie--info">R12 Horror - English - 01h 37m</div>

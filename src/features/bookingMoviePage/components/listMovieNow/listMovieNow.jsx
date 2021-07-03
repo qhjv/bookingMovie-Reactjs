@@ -24,7 +24,7 @@ function ListMovieNow(props) {
 
 
     if(clickBonus == false && search =="" ){
-            listMovieNow.slice(0,31).filter((movie)=>{
+            listMovieNow.slice(0,29).filter((movie)=>{
                 if(document.querySelector(".pageViewer--bonus") !== null && document.querySelector(".pageViewer--button__all i") !==null){
                     document.querySelector(".pageViewer--bonus").textContent="Xem thêm"
                     document.querySelector(".pageViewer--button__all i").classList.remove("bonusI")
@@ -127,26 +127,38 @@ function ListMovieNow(props) {
                         && NGAY_HOM_NAY <= Date.parse(movie.ngayKhoiChieu)
                         && Date.parse(movie.ngayKhoiChieu) <= NGAY_KET_THUC
                     }
-              }).map((movie)=>(
-                
-                <div key={movie.maPhim} className="pageViewer--movies col-md-3 col-lg-3">
-                    <div className="pageViewer--movie--full">
-                        <div className="pageViewer--listMovie__img">
-                        <img src={movie.hinhAnh} />
+              }).map((movie)=>{
+                  if(movie===""){
+                      return(
+                        <div key={movie.maPhim} className="pageViewer--movies col-md-3 col-lg-3">
+                            <div className="pageViewer--movie--full">
+                                hihii
+                                
+                            </div>
                         </div>
-                        <div className="pageViewer--movieContent--full">
-                        <div className="pageViewer--listMovie__name">{movie.tenPhim} </div>
-                        <div className="pageViewer--listMovie__rate ">{movie.danhGia}/10 rating</div>
-                        <Link onClick={handleClickBook}
-                            to={`/thong-tin-phim/${movie?.maPhim}`}
-                            className="pageViewer--listMovie__button listMovie--booking-button d-flex justify-content-center align-items-center"
-                        >
-                                Book Now
-                        </Link>
+                      )
+                  }else{
+                      return(
+                        <div key={movie.maPhim} className="pageViewer--movies col-md-3 col-lg-3">
+                            <div className="pageViewer--movie--full">
+                                <div className="pageViewer--listMovie__img">
+                                <img src={movie.hinhAnh} />
+                                </div>
+                                <div className="pageViewer--movieContent--full">
+                                <div className="pageViewer--listMovie__name">{movie.tenPhim} </div>
+                                <div className="pageViewer--listMovie__rate ">{movie.danhGia}/10 rating</div>
+                                <Link onClick={handleClickBook}
+                                    to={`/thong-tin-phim/${movie?.maPhim}`}
+                                    className="pageViewer--listMovie__button listMovie--booking-button d-flex justify-content-center align-items-center"
+                                >
+                                        Book Now
+                                </Link>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-              ))}
+                      )
+                  }
+              })}
             
           </div>
           <div className="pageViewer--button">

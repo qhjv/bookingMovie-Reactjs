@@ -12,6 +12,7 @@ import Page404 from './components/404page/404Page';
 import Loading from './components/loading/loading';
 import DetailMoviePage from './features/detailMoviePage/detailMoviePage';
 import TicketRoomPage from './features/ticketRoomPage/ticketRoomPage';
+import HistoryBookTicket from './features/historyBookTicket/historyBookTicket';
 
 
 function App() {
@@ -50,6 +51,9 @@ function App() {
               </Route>
               <Route path="/dat-ve/:id">
                 <TicketRoomPage setUserState={()=>setUser(null)} ></TicketRoomPage>
+              </Route>
+              <Route path="/lich-su-dat-ve">
+                <HistoryBookTicket setUserState={()=>setUser(null)} ></HistoryBookTicket>
               </Route>
             </Switch>
           </>

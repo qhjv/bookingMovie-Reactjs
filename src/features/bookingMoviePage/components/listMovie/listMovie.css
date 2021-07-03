@@ -149,7 +149,7 @@ body .renderMovies .container .row>* {
     color:var(--color-main1)
 }
 .listMovie--img {
-    height: 250px;
+    height: 270px;
 }
 .listMovie--rate {
     position: absolute;

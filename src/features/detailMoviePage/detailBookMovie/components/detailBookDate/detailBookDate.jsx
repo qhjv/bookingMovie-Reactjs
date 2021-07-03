@@ -64,7 +64,7 @@ function DetailBookDate(props) {
                 <div className="container">
                     <div className="detailPage--book__dates row d-flex align-items-center " id="detailPage--book__dates">
                         {(listDayShow?listDayShow:[]).map((lich,index)=>(
-                            <div key={index} className={index===0?
+                            <div className={index===0?
                                 "detailPage--book__date col-md-3 col-lg-3 active"
                                 :"detailPage--book__date col-md-3 col-lg-3"}
                                 onClick={()=>handleChooseDate(lich,index)}

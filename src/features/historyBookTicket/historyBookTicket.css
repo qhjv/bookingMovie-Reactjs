@@ -1,0 +1,38 @@
+
+.historyBookTicket{
+    height:100vh;
+    margin-top: 50px;
+}
+.historyBookTicket .container{
+    position: relative!important;
+}
+table.table {
+    color: #ffffffd1;
+    text-align: center;
+    overflow: auto;
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
+.historyBookTicket th, td {
+    border-right: 1px solid;
+}
+.historyBookTicket .detailPage--breadcrumbs{
+    margin:50px 0;
+}
+.noTicket{
+    color: #ffffffd1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #ffffffd1;
+    padding: 30px;
+}
+.noTicket_div img{
+    width: 300px;
+}
+.noTicket_div h3{
+    margin-top: 20px;
+    font-family: 'Bungee Inline';
+    letter-spacing: 2px;
+    font-size: 22px;
+}

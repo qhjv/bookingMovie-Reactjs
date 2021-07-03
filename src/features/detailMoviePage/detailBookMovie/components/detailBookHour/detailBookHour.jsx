@@ -17,7 +17,7 @@ function DetailBookHour({gioChieu}) {
 
                 <Link 
                     to={`/dat-ve/${gio?.maLichChieu}`} 
-                    key={index}
+                    key={gio.maLichChieu}
                     className="detailPage--book__time col-md-3 col-lg-3"
                     onClick={handleClickBook}
                 >

@@ -63,7 +63,7 @@ function DetailBookMovie({hethongrapchieu}) {
                             onChange={handleChooseTheater}
                         >
                             {(hethongrapchieu?hethongrapchieu:[]).map((theater,index)=>(
-                                <option key={index} value={theater.maHeThongRap}
+                                <option key={theater.maHeThongRap} value={theater.maHeThongRap}
                                 >
                                     {theater.tenHeThongRap}
                                 </option>

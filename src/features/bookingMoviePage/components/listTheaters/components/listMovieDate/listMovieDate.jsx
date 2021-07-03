@@ -55,7 +55,7 @@ function ListMovieDate({ movieDate }) {
     return (
         <>
             {(bigArr ? bigArr : []).map((mov, index) => (
-                <div key={index} className="theaterMovie--time">
+                <div key={mov.ngayChieuGioChieu} className="theaterMovie--time">
                     <h5 onClick={() => handleClickToggle(index)}>
                         {new Date(mov[0].ngayChieuGioChieu).toLocaleDateString("en-GB")}
                         <i className="fas fa-angle-down" />
@@ -66,7 +66,7 @@ function ListMovieDate({ movieDate }) {
                                 {mov.map((mv)=>(
                                     <Link 
                                         to={`/dat-ve/${mv?.maLichChieu}`} 
-                                        key={index}
+                                        key={mv?.maLichChieu}
                                         className="theaterMovie--hour col-md-4 col-lg-4"
                                         onClick={handleClickBook}
                                     >

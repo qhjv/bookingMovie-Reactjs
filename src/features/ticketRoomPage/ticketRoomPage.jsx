@@ -56,6 +56,8 @@ function TicketRoomPage(props) {
     const [timeM, setTimeM] = useState(5);
     const [timeS, setTimeS] = useState(0);
     const [temp, setTemp] = useState(0);
+    const [thanhToan, setThanhToan] = useState("");
+    var arrTemp = [];
 
     const history = useHistory();
     const {
@@ -82,14 +84,35 @@ function TicketRoomPage(props) {
                 icon: "warning",
                 title: "Chưa chọn ghế",
             });
-        }else if(checkPay == false){
+        }else if(checkPay === false){
             Swal.fire({
                 icon: "warning",
                 title: "Bạn chưa thanh toán",
             });
-        }else if(checkPay == true && activeStep == 1){
+        }else if(checkPay === true && activeStep === 1 && tickets.totalPrice>0){
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
-            
+            let idTicket = Math.random().toString(36).substr(2, 5);
+            let infoUser = JSON.parse(localStorage.getItem("user"));
+            let infoEmail = infoUser.email;
+            let settenphim= (ticket.thongTinPhim?ticket.thongTinPhim:{}).tenPhim
+            let setgiochieu= (ticket.thongTinPhim?ticket.thongTinPhim:{}).gioChieu
+            let setngaychieu= (ticket.thongTinPhim?ticket.thongTinPhim:{}).ngayChieu
+            let setrapchieu= (ticket.thongTinPhim?ticket.thongTinPhim:{}).tenCumRap
+            let setsoghe= (tickets.bookingSeat?tickets.bookingSeat:[])
+            let setgiatien = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(tickets.totalPrice)
+            let thanhtoan = thanhToan
+            let infoTickets = Object.assign({}, {settenphim},{setsoghe},{setgiatien}, { setgiochieu},{infoEmail},{setngaychieu},{setngaychieu},{setrapchieu},{thanhtoan},{ idTicket });
+            var count = 0;
+            if (localStorage.getItem("historyBookTicket")) {
+            count = JSON.parse(localStorage.getItem("historyBookTicket")).length;
+            }
+            if (count > 0) {
+            arrTemp = JSON.parse(localStorage.getItem("historyBookTicket"));
+            arrTemp.push(infoTickets);
+            } else {
+            arrTemp.push(infoTickets);
+            }
+            localStorage.setItem("historyBookTicket", JSON.stringify(arrTemp));
         }
     };
 
@@ -99,17 +122,27 @@ function TicketRoomPage(props) {
 
     
     const handleClickFinish = () => {
-        console.log("hihi")
+        history.push({ pathname: "/lich-su-dat-ve" });
+        $(window).scrollTop(0);
     }
     const handlePaySoon =()=>{
         Swal.fire({
             icon: "success",
             title: "Bạn đã chọn giao dịch trực tiếp tại quầy",
         });
-        setCheckPay(true) 
+        setCheckPay(true)
+        if(thanhToan){
+            Swal.fire({
+                icon: "warning",
+                title: "Bạn đã thanh toán trước đó",
+            });
+        }else{
+            setThanhToan("Thanh toán tại quầy")
+        }
     }
     const tranSuccess = (check) =>{
         setCheckPay(check)
+        setThanhToan("Đã thanh toán")
     }
     
       const handleTime = () => {
@@ -231,7 +264,7 @@ function TicketRoomPage(props) {
                                         <div className={classes.actionsContainer}>
                                             <div>
                                             <Button
-                                                disabled={activeStep === 0}
+                                                disabled={activeStep === 0 || activeStep === 2 }
                                                 onClick={handleBack}
                                                 className={classes.button}
                                             >
