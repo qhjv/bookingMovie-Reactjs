@@ -1,8 +1,6 @@
 import React,{ useState ,useRef} from 'react';
-import PropTypes from 'prop-types';
 import "./listMovieNow.css"
 import logo2 from '../../../../assets/images/logo2.png'
-import movie from '../../../../assets/images/movie4.jpg'
 import { useSelector } from 'react-redux';
 import $ from "jquery";
 import { NGAY_HOM_NAY,NGAY_KET_THUC } from '../../../../constants/constants';
@@ -23,7 +21,7 @@ function ListMovieNow(props) {
 
 
 
-    if(clickBonus == false && search =="" ){
+    if(clickBonus === false && search === "" ){
             listMovieNow.slice(0,29).filter((movie)=>{
                 if(document.querySelector(".pageViewer--bonus") !== null && document.querySelector(".pageViewer--button__all i") !==null){
                     document.querySelector(".pageViewer--bonus").textContent="Xem thêm"
@@ -35,7 +33,7 @@ function ListMovieNow(props) {
                 return  array.push(movie)
 
             })
-    }else if(clickBonus ==true && search ==""  ){
+    }else if(clickBonus === true && search === ""  ){
             listMovieNow.filter((movie)=>{
                 if(document.querySelector(".pageViewer--bonus") !== null && document.querySelector(".pageViewer--button__all i") !==null){
                     document.querySelector(".pageViewer--bonus").textContent="Ẩn bớt"
@@ -104,7 +102,7 @@ function ListMovieNow(props) {
         <div className="pageViewer">
         <div className="container d-flex justify-content-between flex-column align-items-center">
           <div className="pageViewer--content d-flex justify-content-between flex-column align-items-center">
-            <div className="pageViewer--content_-logo"><img src={logo2} /></div>
+            <div className="pageViewer--content_-logo"><img src={logo2} alt="" /></div>
             <div className="pageViewer--content__heading">PHIM ĐANG CHIẾU</div>
             <div className="pageViewer--content__name" />
             <div className="pageViewer--search">
@@ -115,10 +113,10 @@ function ListMovieNow(props) {
             </div>
           </div>
           <div className="row pageViewer--listMovieNow">
-              {(array ? array :[]).filter((movie)=>{
+              {(array ? array :[]).filter((movie) => {
                     if( NGAY_HOM_NAY <= Date.parse(movie.ngayKhoiChieu)
                         &&Date.parse(movie.ngayKhoiChieu) <= NGAY_KET_THUC
-                        &&search == ""
+                        &&search === ""
                     ){
                         return movie
                     }
@@ -127,22 +125,14 @@ function ListMovieNow(props) {
                         && NGAY_HOM_NAY <= Date.parse(movie.ngayKhoiChieu)
                         && Date.parse(movie.ngayKhoiChieu) <= NGAY_KET_THUC
                     }
+                    console.log(movie.length)
               }).map((movie)=>{
-                  if(movie===""){
-                      return(
-                        <div key={movie.maPhim} className="pageViewer--movies col-md-3 col-lg-3">
-                            <div className="pageViewer--movie--full">
-                                hihii
-                                
-                            </div>
-                        </div>
-                      )
-                  }else{
+                  if(movie){
                       return(
                         <div key={movie.maPhim} className="pageViewer--movies col-md-3 col-lg-3">
                             <div className="pageViewer--movie--full">
                                 <div className="pageViewer--listMovie__img">
-                                <img src={movie.hinhAnh} />
+                                <img src={movie.hinhAnh} alt="" />
                                 </div>
                                 <div className="pageViewer--movieContent--full">
                                 <div className="pageViewer--listMovie__name">{movie.tenPhim} </div>
@@ -157,21 +147,26 @@ function ListMovieNow(props) {
                             </div>
                         </div>
                       )
+                }else if(!movie){
+                      return(
+                        <div className="pageViewer--movies col-md-3 col-lg-3">
+                            hihi
+                        </div>
+                      )
                   }
               })}
             
           </div>
-          <div className="pageViewer--button">
-            <div className="pageViewer--button__all"
-                onClick={handleViewAll}
-            >
-                <div className="pageViewer--bonus">
-                Xem Thêm
-
-                </div>
-                <i className="fas fa-long-arrow-alt-right" />
+            <div className="pageViewer--button">
+                    <div className="pageViewer--button__all"
+                        onClick={handleViewAll}
+                    >
+                        <div className="pageViewer--bonus">
+                            Xem Thêm
+                        </div>
+                        <i className="fas fa-long-arrow-alt-right"/>
+                    </div>
             </div>
-          </div>
         </div>
       </div>
     );

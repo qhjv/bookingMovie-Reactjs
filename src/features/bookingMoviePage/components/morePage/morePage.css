@@ -1,0 +1,98 @@
+
+
+.morePage {
+    color: #ffffff;
+    padding: 50px;
+    margin-top: 20px;
+}
+.morePage .container{
+    position: relative;
+}
+.morePage_header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.morePage_sale{
+    margin-bottom: 30px;
+}
+.morePage_sale-img{
+    padding: 0!important;
+    height: 550px;
+}
+.morePage_sale img {
+    width: 100%;
+    height: 550px;
+}
+
+.morePage_news {
+    display: flex;
+    justify-content: space-between;
+    height: 300px;
+}
+.morePage_news-1{
+    background: url(../../../../assets/images/imgNew1.jpg) no-repeat center;
+}
+.morePage_news-2{
+    background: url(../../../../assets/images/imgNew2.jpg) no-repeat center;
+}
+.morePage_news-3{
+    background: url(../../../../assets/images/imgNew3.jpg)no-repeat center;
+}
+.morePage_new {
+    position: relative;
+    height: 100%;
+    background-size: cover;
+    background-position: 55% 18%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    width: 32.3333%!important;
+    max-width:32.3333%!important ;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.morePage_new:hover{
+    transform: translateY(-5px);
+    /* transform: translateX(-5px); */
+}
+.morePage_title{
+    overflow: hidden;
+    margin-bottom: 5px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    line-height: 25px;
+    height:50px;
+    display: -webkit-box;
+    z-index: 1;
+}
+.morePage_new::before {
+    position: absolute;
+    content: "";
+    height:70%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), var(--color-main1));
+    z-index: 0;
+}
+.morePage .pageViewer--bonus2{
+    color:#999
+}
+.pageViewer--button__all2 i{
+    color: #999;
+}
+.pageViewer--button__all2:hover .pageViewer--bonus2{
+    color: var(--color-main1);
+}
+.pageViewer--button__all2:hover i{
+    transform: translateX(10px);
+    color: var(--color-main1);
+}
+
+
+

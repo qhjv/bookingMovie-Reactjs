@@ -9,6 +9,7 @@ import ListMovieNow from './components/listMovieNow/listMovieNow';
 import img1 from '../../../src/assets/images/tap2.png'
 import $ from 'jquery'
 import ListTheaters from './components/listTheaters/listTheaters';
+import MorePage from './components/morePage/morePage';
 
 
 BookingMoviePage.propTypes = {
@@ -17,7 +18,7 @@ BookingMoviePage.propTypes = {
 
 function BookingMoviePage(props) {
     
-    const vitriMH= $(window).scrollTop()
+    const vitriMH = $(window).scrollTop()
     $(window).on("scroll",function(){
         if($(this).scrollTop() >600){
             $(".bookTheater").addClass("hien")
@@ -47,6 +48,7 @@ function BookingMoviePage(props) {
             </div>
             <ListMovie></ListMovie>
             <ListMovieNow></ListMovieNow>
+            <MorePage></MorePage>
             <div className="bookTheater">
                 <div className="bookTheater--navbar"
                     onClick={handleClickBookTheater}
@@ -55,7 +57,7 @@ function BookingMoviePage(props) {
                         CỤM RẠP
                     </div>
                     <div className="bookTheater--navbar__tap">
-                        <img src={img1} />
+                        <img src={img1} alt="" />
                     </div>
                 </div>
             </div>

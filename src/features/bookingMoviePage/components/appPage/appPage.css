@@ -1,0 +1,80 @@
+
+.appView {
+    background: black;
+    padding: 50px;
+    color: #ffffff;
+    border-top: 7px solid #777;
+}
+.appView_imgApp {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.appView_imgApp-download {
+    position: absolute;
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 73%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000000;
+    border: 3px solid #777;
+    border-radius: 17px;
+    padding: 15px 20px;
+}
+.appView_download-img {
+    height: 60px;
+}
+.appView_download-gif{
+    height: 60px;
+    cursor: pointer;
+}
+.appView_download-img img,
+.appView_download-gif img {
+    height: 100%;
+}
+.appView_download-title {
+    margin-right: 10px;
+}
+.appView_download-title h5 {
+    margin-bottom:3px;
+}
+.appView_download-title small {
+    color:rgb(6, 102, 187);
+    font-size: 15px;
+    font-weight: 600;
+}
+.appView .appView_right{
+    padding: 60px!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+.appView_content{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+.appView_small{
+    text-align: justify;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.appView_stores {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.appView_store {
+    width: 150px;
+    margin: 30px 0 0 20px;
+}
+.appView_store img{
+    width:100%
+}
