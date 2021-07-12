@@ -10,6 +10,7 @@ import img1 from '../../../src/assets/images/tap2.png'
 import $ from 'jquery'
 import ListTheaters from './components/listTheaters/listTheaters';
 import MorePage from './components/morePage/morePage';
+import AppPage from './components/appPage/appPage';
 
 
 BookingMoviePage.propTypes = {
@@ -49,6 +50,7 @@ function BookingMoviePage(props) {
             <ListMovie></ListMovie>
             <ListMovieNow></ListMovieNow>
             <MorePage></MorePage>
+            <AppPage></AppPage>
             <div className="bookTheater">
                 <div className="bookTheater--navbar"
                     onClick={handleClickBookTheater}

@@ -29,7 +29,6 @@ function ListMovieNow(props) {
                     document.querySelector(".pageViewer--bonus").classList.remove("hidden")
                     document.querySelector(".pageViewer--button__all i").classList.remove("hidden")
                 }
-                
                 return  array.push(movie)
 
             })
@@ -125,7 +124,6 @@ function ListMovieNow(props) {
                         && NGAY_HOM_NAY <= Date.parse(movie.ngayKhoiChieu)
                         && Date.parse(movie.ngayKhoiChieu) <= NGAY_KET_THUC
                     }
-                    console.log(movie.length)
               }).map((movie)=>{
                   if(movie){
                       return(

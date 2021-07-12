@@ -26,7 +26,6 @@ function HomePage(props) {
     const handleEmailSubmit =()=>{
     }
    const handleClickButton=()=>{
-    console.log(TextValidator.errorMessages)
 
     const filter = /^[A-Za-z][\w$.]+@[\w]+\.\w+$/; 
     if(filter.test(email)){

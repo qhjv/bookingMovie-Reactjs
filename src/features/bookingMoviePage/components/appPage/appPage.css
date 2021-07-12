@@ -3,7 +3,11 @@
     background: black;
     padding: 50px;
     color: #ffffff;
-    border-top: 7px solid #777;
+    border-top: 20px solid #181c1c;
+}
+.appView .container {
+    position: relative!important;
+    max-width: 1320px!important;
 }
 .appView_imgApp {
     position: relative;

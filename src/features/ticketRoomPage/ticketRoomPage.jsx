@@ -20,6 +20,8 @@ import PayPal from './components/ticketPay/paypal';
 import Checkbox from '@material-ui/core/Checkbox';
 import { useHistory } from "react-router-dom";
 import $ from "jquery";
+import { ticketBooked } from './bookedClient';
+import { unwrapResult } from '@reduxjs/toolkit';
 
 
 
@@ -57,9 +59,12 @@ function TicketRoomPage(props) {
     const [timeS, setTimeS] = useState(0);
     const [temp, setTemp] = useState(0);
     const [thanhToan, setThanhToan] = useState("");
+
     var arrTemp = [];
 
     const history = useHistory();
+    const dispatch = useDispatch()
+    
     const {
         params: { id }
     } = useRouteMatch()
@@ -69,13 +74,11 @@ function TicketRoomPage(props) {
         handleTime();
     }, [temp]);
     const {ticket,loading}= useTicketInfo(id)
-    
     if (!ticket) {
         return null;
     }
     const steps = getSteps();
-    
-    const handleNext = () => {
+    const handleNext = async () => {
         if(tickets.bookingSeat.length >0 && activeStep!== 1 ){
             setActiveStep((prevActiveStep) => prevActiveStep + 1);
             setCheckPay(false)
@@ -113,6 +116,26 @@ function TicketRoomPage(props) {
             arrTemp.push(infoTickets);
             }
             localStorage.setItem("historyBookTicket", JSON.stringify(arrTemp));
+            try {
+                const { taiKhoan } = JSON.parse(
+                    localStorage.getItem("userAPI")
+                  );
+                let danhSachVe = [];
+                  (tickets.bookingSeat?tickets.bookingSeat:[]).forEach((danhSach) => {
+                    let { maGhe, giaVe } = danhSach;
+                    danhSachVe.push({ maGhe, giaVe });
+                });
+                const action = ticketBooked({
+                    maLichChieu: (ticket.thongTinPhim?ticket.thongTinPhim:{}).maLichChieu,
+                    danhSachVe: danhSachVe,
+                    taiKhoanNguoiDung: taiKhoan
+                })
+                
+                const resultAction = await dispatch(action)
+                const bookedTicket = unwrapResult(resultAction)
+            } catch (error) {
+                console.log(error)
+            }
         }
     };
 

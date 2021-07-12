@@ -1,31 +1,34 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import "./appPage.css"
+import applestore from "../../../../assets/images/app-store.png";
+import chplay from "../../../../assets/images/google-play.png";
+import layoutApp from "../../../../assets/images/layoutApp.jpg";
+import logoApp from "../../../../assets/images/logoApp.png";
+import taiApp from "../../../../assets/images/taiApp.gif";
+import "./appPage.css";
 
 
-
-appPage.propTypes = {
+AppPage.propTypes = {
     
 };
 
-function appPage(props) {
+function AppPage(props) {
     return (
         <div className="appView">
             <div className="container">
                 <div className="row">
                     <div className="appView_left col-md-5 col-lg-5">
                         <div className="appView_imgApp">
-                            <img src="./images/layoutApp.jpg" alt="" className="img" />
+                            <img src={layoutApp} alt="" className="img" />
                             <div className="appView_imgApp-download">
                                 <div className="appView_download-img">
-                                    <img src="./images/logoApp.png" alt="" />
+                                    <img src={logoApp} alt="" />
                                 </div>
                                 <div className="appView_download-title">
                                     <h5>QH Movie</h5>
                                     <small>Đang tải xuống ...</small>
                                 </div>
                                 <div className="appView_download-gif">
-                                    <img src="./images/taiApp.gif" alt="" />
+                                    <img src={taiApp} alt="" />
                                 </div>
                             </div>
                         </div>
@@ -40,12 +43,12 @@ function appPage(props) {
                         <div className="appView_stores">
                             <div className="appView_store appView_store-applestore">
                                 <a href="#">
-                                    <img src="./images/app-store.png" alt="" />
+                                    <img src={applestore} alt="" />
                                 </a>
                             </div>
                             <div className="appView_store appView_store-chplay">
                                 <a href="#">
-                                    <img src="./images/google-play.png" alt="" />
+                                    <img src={chplay} alt="" />
                                 </a>
                             </div>
                         </div>
@@ -56,4 +59,4 @@ function appPage(props) {
     );
 }
 
-export default appPage;
+export default AppPage;

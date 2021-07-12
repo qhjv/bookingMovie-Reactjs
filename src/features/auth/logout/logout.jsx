@@ -1,20 +1,20 @@
-import React,{useState,useEffect} from 'react';
-import PropTypes from 'prop-types';
-import './logout.css'
-import {Container,IconButton , CssBaseline , Avatar, makeStyles, Card, CardContent, Typography, FormControlLabel, Checkbox ,Button, Grid, CircularProgress  } from '@material-ui/core'
-import { LockRounded} from '@material-ui/icons'
-import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
-import {ToastContainer, toast} from 'react-toastify';
-import { Link } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css'
-import logo from '../../../assets/images/logo.png'
+import { Button, IconButton } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import Loading from '../../../components/loading/loading';
-import firebase from '../../../helpers/db';
+import { unwrapResult } from '@reduxjs/toolkit';
 import "firebase/auth";
-import { useSelector } from 'react-redux';
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import logo from '../../../assets/images/logo.png';
+import Loading from '../../../components/loading/loading';
+import { MA_NHOM } from '../../../constants/constants';
+import firebase from '../../../helpers/db';
+import { register } from '../userSlice';
+import './logout.css';
 
 
 LogOut.propTypes = {
@@ -29,11 +29,9 @@ function LogOut(props) {
     const [showPassword, setShowPassword] = useState(false)
     const [confirmPassword, setConfirmPassword] = useState('')
     const history = useHistory();
-
+    const dispatch = useDispatch()
     const handleEmail =(event)=>{
-        
-
-            setEmail(event.target.value)
+        setEmail(event.target.value)
     }
     const handlePassword =(event)=>{
         setPassword(event.target.value)
@@ -47,28 +45,53 @@ function LogOut(props) {
     const handleConfirmPassowerd=(event)=>{
         setConfirmPassword(event.target.value)
     }
-    const handleLogout=()=>{
-        firebase.auth()
-            .createUserWithEmailAndPassword(email, password)
-            .then(response => {
-                if(response) {
-                    history.push("/dangnhap");
-                    props.toggle();
-                    setLoading(true);
-                }
-            }).catch((error) => {
-                switch (error.code) {
-                    case 'auth/email-already-in-use':
-                        toast.error(error.message);
-                        break;
-                    case 'auth/invalid-email': 
-                        toast.error(error.message);                    
-                        break;
-                    case 'auth/weak-password':
-                        toast.error(error.message);
-                        break;
-                }
-            });
+    const handleLogout = async ()=>{
+        try {
+            const action = register({
+                taiKhoan: email,
+                matKhau: password,
+                hoTen: email,
+                email: email,
+                soDt: password,
+                maLoaiNguoiDung: "KhachHang",
+                maNhom: MA_NHOM,
+            })
+            localStorage.setItem('userAPI',JSON.stringify({
+                taiKhoan: email,
+                matKhau: password,
+                hoTen: email,
+                email: email,
+                soDt: password,
+                maLoaiNguoiDung: "KhachHang",
+                maNhom: MA_NHOM,
+            }));
+            const resultAction = await dispatch(action)
+            const user = unwrapResult(resultAction)
+            firebase.auth()
+                .createUserWithEmailAndPassword(email, password)
+                .then(response => {
+                    if(response) {
+                        history.push("/dangnhap");
+                        props.toggle();
+                        setLoading(true);
+                    }
+                }).catch((error) => {
+                    switch (error.code) {
+                        case 'auth/email-already-in-use':
+                            toast.error(error.message);
+                            break;
+                        case 'auth/invalid-email': 
+                            toast.error(error.message);                    
+                            break;
+                        case 'auth/weak-password':
+                            toast.error(error.message);
+                            break;
+                    }
+                });
+        } catch (error) {
+            toast.error("email này đã có người đăng ký !!!");
+        }
+        
     }
 
     useEffect(()=>{

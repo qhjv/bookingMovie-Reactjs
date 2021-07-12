@@ -48,7 +48,8 @@ function LogIn(props) {
                 const {user} =  response;
                 const data = {
                     userId: user.uid,
-                    email: user.email
+                    email: user.email,
+                    accessToken:user.za
                 }
                 localStorage.setItem('user', JSON.stringify(data));
                 const storage = localStorage.getItem('user');
