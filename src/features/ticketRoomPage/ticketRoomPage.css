@@ -51,7 +51,8 @@
   padding: 30px;
 }
 .bookTicketMovie--left .makeStyles-actionsContainer-3,
-.bookTicketMovie--left .makeStyles-actionsContainer-7 {
+.bookTicketMovie--left .makeStyles-actionsContainer-7,
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.jss10.MuiButton-containedPrimary {
   margin-top: 70px !important;
   float: right !important;
 }
@@ -61,10 +62,12 @@
 .bookTicketMovie--left
   .MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-2,
 .bookTicketMovie--left
-  .MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-6 {
+  .MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-6,
+button.MuiButtonBase-root.MuiButton-root.MuiButton-text.jss10{
   background: #ffffff !important;
 }
-button.MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-2.Mui-disabled.Mui-disabled {
+button.MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-2.Mui-disabled.Mui-disabled,
+.MuiButton-root.Mui-disabled {
   display: none;
 }
 button.MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-6.Mui-disabled.Mui-disabled {
