@@ -70,3 +70,6 @@ a:focus, a:hover {
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-main1); 
   }
+.MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline {
+    border: none!important;
+}
