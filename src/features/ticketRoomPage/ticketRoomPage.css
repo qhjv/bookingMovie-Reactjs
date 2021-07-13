@@ -56,6 +56,9 @@ button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.jss10.MuiButton-con
   margin-top: 70px !important;
   float: right !important;
 }
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary {
+    float: right!important;
+}
 .bookTicketMovie--left .MuiButtonBase-root.MuiButton-containedPrimary {
   background: var(--color-main1) !important;
 }
@@ -65,6 +68,9 @@ button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.jss10.MuiButton-con
   .MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-6,
 button.MuiButtonBase-root.MuiButton-root.MuiButton-text.jss10{
   background: #ffffff !important;
+}
+button.MuiButtonBase-root.MuiButton-root.MuiButton-text {
+    background: #fff;
 }
 button.MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-2.Mui-disabled.Mui-disabled,
 .MuiButton-root.Mui-disabled {
