@@ -1,14 +1,13 @@
 import axios from "axios"
+import { ACCESS_TOKEN } from "../constants/constants";
 
-const {accessToken } = JSON.parse(
-  localStorage.getItem("user")
-);
+
 const axiosClient = axios.create({
     
     baseURL: 'https://movie0706.cybersoft.edu.vn/api/',
     headers: {
       'Content-Type':'application/json',
-      "Authorization": `Bearer ${accessToken?accessToken:null}`,
+      "Authorization": `Bearer ${ACCESS_TOKEN}`,
     },
 });
 

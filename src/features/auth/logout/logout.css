@@ -18,7 +18,7 @@ section.logoutContent {
 }
 .fulllogout {
     height: 100%;
-    padding: 50px;
+    padding:0 50px;
     color: #787676;
     border-radius: 5px;
     max-width: 600px;

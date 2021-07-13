@@ -11,6 +11,8 @@ import $ from 'jquery'
 import ListTheaters from './components/listTheaters/listTheaters';
 import MorePage from './components/morePage/morePage';
 import AppPage from './components/appPage/appPage';
+import Footer from '../../components/footer/footer';
+import Contact from '../../components/contact/contact';
 
 
 BookingMoviePage.propTypes = {
@@ -51,6 +53,10 @@ function BookingMoviePage(props) {
             <ListMovieNow></ListMovieNow>
             <MorePage></MorePage>
             <AppPage></AppPage>
+            <div className="footer">
+                <Contact></Contact>
+                <Footer></Footer>
+            </div>
             <div className="bookTheater">
                 <div className="bookTheater--navbar"
                     onClick={handleClickBookTheater}

@@ -22,6 +22,7 @@ import { useHistory } from "react-router-dom";
 import $ from "jquery";
 import { ticketBooked } from './bookedClient';
 import { unwrapResult } from '@reduxjs/toolkit';
+import Footer from '../../components/footer/footer';
 
 
 
@@ -364,7 +365,9 @@ function TicketRoomPage(props) {
                     </div>
                 </div>
             </div>
-            
+            <div className="footer">
+                <Footer></Footer>
+            </div>
         </div>
     );
 }

@@ -5,6 +5,7 @@ import NavBar from '../../components/navbar/navBar';
 import { Breadcrumbs, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import imgPng from "../../../src/assets/images/noBookTicket.png"
+import Footer from '../../components/footer/footer';
 
 HistoryBookTicket.propTypes = {
     
@@ -20,7 +21,6 @@ function HistoryBookTicket(props) {
               return infoUser.email === item.infoEmail;
             })
             setInfoHistory(infoBookTicketsAll)
-            console.log(infoHistory)
         }
     }, [localStorage.getItem("historyBookTicket")])
     if(infoHistory.length === 0){
@@ -60,6 +60,9 @@ function HistoryBookTicket(props) {
                                 </div>
                         </div>
                     </div>
+                </div>
+                <div className="footer">
+                    <Footer></Footer>
                 </div>
             </div>
         )
@@ -110,6 +113,9 @@ function HistoryBookTicket(props) {
                             </table>
                         </div>
                     </div>
+                </div>
+                <div className="footer">
+                    <Footer></Footer>
                 </div>
             </div>
         );

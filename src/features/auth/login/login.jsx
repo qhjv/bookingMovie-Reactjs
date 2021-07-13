@@ -104,7 +104,7 @@ function LogIn(props) {
                                             value={email}
                                             validators={['required', 'isEmail']}
                                             errorMessages={['Hãy điền trường này!!!', 'email không hợp lệ']}
-                                            autoComplete='off' 
+                                            autoComplete='on' 
                                         />
                                         <div className="passwordFull">
 
@@ -118,7 +118,7 @@ function LogIn(props) {
                                                     value={password}
                                                     validators={['required']}
                                                     errorMessages={['Hãy điền trường này!!!']}
-                                                    autoComplete="off"
+                                                    autoComplete="on"
                                             >
                                             </TextValidator>
                                             <IconButton

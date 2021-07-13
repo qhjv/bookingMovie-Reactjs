@@ -6,7 +6,7 @@ export const ticketBooked = createAsyncThunk(
     'booked/ticketBooked',
     async (payload) => {
         const data = await bookedApi.addBooked(payload)
-        return data.bookedTicket
+        return data
     }
   )
 const bookedSlice = createSlice({
@@ -18,6 +18,7 @@ const bookedSlice = createSlice({
     extraReducers:{
         [ticketBooked.fulfilled]:(state,action)=>{
             state.current = action.payload
+            console.log(state.current)
         }
     }
 })

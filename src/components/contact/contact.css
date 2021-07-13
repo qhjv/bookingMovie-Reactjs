@@ -1,0 +1,42 @@
+.contact {
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.contact_form {
+    width: 40%;
+}
+input#joinnow-email {
+    border-radius: 30px;
+    width: 100%;
+    height: 47px;
+}
+button.contact_form-submit {
+    height: 40px;
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 15px;
+    background: var(--color-main1);
+    border: none;
+    margin: 25px 0 0 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    padding: 0 15px;
+}
+button.contact_form-submit:hover{
+    transform: translateY(-5px);
+}
+.contact_title {
+    font-size: 20px;
+    width: 40%;
+    font-weight: 100;
+    font-family: 'Bungee Inline';
+    letter-spacing: 1px;
+}
+.form-control:focus{
+    border:2px solid var(--color-main1)!important;
+    box-shadow:none!important
+}

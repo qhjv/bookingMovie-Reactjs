@@ -25,13 +25,20 @@ function LogOut(props) {
     const emailfromhome = useSelector(state=>state.emailfromhome)
     const [email,setEmail]=useState(emailfromhome?emailfromhome:'')
     const [password,setPassword]=useState('')
+    const [name,setName]=useState('')
     const [loading,setLoading]=useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const [confirmPassword, setConfirmPassword] = useState('')
     const history = useHistory();
     const dispatch = useDispatch()
+
+
+
     const handleEmail =(event)=>{
         setEmail(event.target.value)
+    }
+    const handleName =(event)=>{
+        setName(event.target.value)
     }
     const handlePassword =(event)=>{
         setPassword(event.target.value)
@@ -50,7 +57,7 @@ function LogOut(props) {
             const action = register({
                 taiKhoan: email,
                 matKhau: password,
-                hoTen: email,
+                hoTen: name,
                 email: email,
                 soDt: password,
                 maLoaiNguoiDung: "KhachHang",
@@ -59,7 +66,7 @@ function LogOut(props) {
             localStorage.setItem('userAPI',JSON.stringify({
                 taiKhoan: email,
                 matKhau: password,
-                hoTen: email,
+                hoTen: name,
                 email: email,
                 soDt: password,
                 maLoaiNguoiDung: "KhachHang",
@@ -145,6 +152,18 @@ function LogOut(props) {
                                             value={email}
                                             validators={['required', 'isEmail']}
                                             errorMessages={['Hãy điền trường này!!!', 'email không hợp lệ']}
+                                            autoComplete='off' 
+                                        />
+                                        <TextValidator
+                                            className="logout--form__input" id="id_userLogoutId" defaultValue placeholder="Nhập tên"
+                                            variant="outlined"
+                                            margin="normal"
+                                            fullWidth
+                                            onChange={handleName}
+                                            name="name"
+                                            value={name}
+                                            validators={['required']}
+                                            errorMessages={['Hãy điền trường này!!!']}
                                             autoComplete='off' 
                                         />
                                         <div className="passwordFull">

@@ -1,18 +1,16 @@
-import React,{useEffect,useState} from 'react';
-import PropTypes from 'prop-types';
-import "./listMovie.css"
-import movieImg1 from "../../../../assets/images/movie4.jpg"
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import moviesApi from '../../../../api/moviesApi';
-import TrailerMoviesView from './components/trailerMoviesView/trailerMoviesView';
+import $ from "jquery";
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getMovie } from './listMovieSlice';
-import { NGAY_HOM_NAY,NGAY_KET_THUC } from '../../../../constants/constants';
 import { Link } from 'react-router-dom';
-import $ from "jquery"
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import moviesApi from '../../../../api/moviesApi';
 import Loading from '../../../../components/loading/loading';
+import { NGAY_HOM_NAY, NGAY_KET_THUC } from '../../../../constants/constants';
+import TrailerMoviesView from './components/trailerMoviesView/trailerMoviesView';
+import "./listMovie.css";
+import { getMovie } from './listMovieSlice';
 
 ListMovie.propTypes = {
     
@@ -29,7 +27,7 @@ function ListMovie(props) {
         speed: 500,
         slidesToShow: 5,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000,
       };
       

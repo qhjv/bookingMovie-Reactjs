@@ -13,7 +13,8 @@ import Loading from './components/loading/loading';
 import DetailMoviePage from './features/detailMoviePage/detailMoviePage';
 import TicketRoomPage from './features/ticketRoomPage/ticketRoomPage';
 import HistoryBookTicket from './features/historyBookTicket/historyBookTicket';
-
+import "./scroll"
+import ScrollTop from './components/scrollTop/scrollTop';
 
 function App() {
   const [user, setUser] = useState('');
@@ -40,6 +41,7 @@ function App() {
       {loading ? (<Loading  onLoad={loading} />): (<></>)}
         {user !==null ? (
           <>
+            <ScrollTop></ScrollTop>
             <Switch>
               <Route exact path="/">
                 <BookingMoviePage setUserState={()=>setUser(null)}></BookingMoviePage>
@@ -55,14 +57,17 @@ function App() {
               <Route path="/lich-su-dat-ve">
                 <HistoryBookTicket setUserState={()=>setUser(null)} ></HistoryBookTicket>
               </Route>
+              <Route path="*" component={Page404}/>
             </Switch>
           </>
         ):(
           <>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/dangnhap" component={LogIn}/>
-            <Route exact path="/dangky" component={LogOut}/>
-            {/* <Route path="*" component={Page404}/> */}
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/dangnhap" component={LogIn}/>
+              <Route exact path="/dangky" component={LogOut}/>
+              <Route path="*" component={Page404}/>
+            </Switch>
           </>
         )}
     </div>

@@ -1,0 +1,38 @@
+.scrollTop {
+    position: fixed;
+    bottom: 18px;
+    right: 27px;
+    height: 45px;
+    width: 45px;
+    border: 3px solid var(--color-main1);
+    border-radius: 30px;
+    text-align: center;
+    color: var(--color-main1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    cursor: pointer;
+    animation: scrolltop 2s forwards;
+    animation-iteration-count:infinite;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.scrollTop i {
+    margin-bottom: 2px;
+}
+.scroll_on{
+    opacity: 1;
+    visibility: visible;
+}
+
+
+@keyframes scrolltop {
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-10px);
+    }
+}

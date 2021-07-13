@@ -10,6 +10,7 @@ import Loading from '../../components/loading/loading';
 import NavBar from '../../components/navbar/navBar';
 import useMovieDetail from '../../hooks/useMovieDetail';
 import DetailBookMovie from './detailBookMovie/detailBookMovie';
+import Footer from '../../components/footer/footer';
 
 DetailMoviePage.propTypes = {
     
@@ -97,6 +98,9 @@ function DetailMoviePage(props) {
                         <DetailBookMovie hethongrapchieu={movie.heThongRapChieu}></DetailBookMovie>
                     </div>
                 </div>
+            </div>
+            <div className="footer">
+                <Footer></Footer>
             </div>
       </div>
     );

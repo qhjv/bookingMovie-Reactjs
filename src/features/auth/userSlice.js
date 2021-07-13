@@ -6,7 +6,8 @@ export const register = createAsyncThunk(
     'user/register',
     async (payload) => {
         const data = await userApi.addUser(payload)
-        return data.userAddApi
+        console.log(data)
+        return data
     }
   )
 const userSlice = createSlice({
