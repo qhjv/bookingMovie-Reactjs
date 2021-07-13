@@ -1,11 +1,11 @@
-import React,{useState,useEffect} from 'react';
-import PropTypes from 'prop-types';
-import "./historyBookTicket.css"
-import NavBar from '../../components/navbar/navBar';
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Breadcrumbs, Typography } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import imgPng from "../../../src/assets/images/noBookTicket.png"
+import imgPng from "../../../src/assets/images/noBookTicket.png";
 import Footer from '../../components/footer/footer';
+import NavBar from '../../components/navbar/navBar';
+import "./historyBookTicket.css";
 
 HistoryBookTicket.propTypes = {
     
@@ -54,7 +54,7 @@ function HistoryBookTicket(props) {
                             </table>
                                 <div className="noTicket">
                                             <div className="noTicket_div">
-                                                <img src={imgPng}></img>
+                                                <img src={imgPng} alt=""></img>
                                                 <h3>Chưa có vé đặt</h3>
                                             </div>
                                 </div>

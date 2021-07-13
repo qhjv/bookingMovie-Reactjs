@@ -1,8 +1,8 @@
-import React,{useEffect} from 'react';
-import PropTypes from 'prop-types';
-import Screen from "../../../../assets/images/screen.png"
-import $ from "jquery"
+/* eslint-disable react-hooks/exhaustive-deps */
+import $ from "jquery";
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import Screen from "../../../../assets/images/screen.png";
 import { clearSeats, getSeats } from '../../ticketRoomSlice';
 
 TicketChooseSeats.propTypes = {
@@ -36,7 +36,7 @@ function TicketChooseSeats(props) {
     return (
         <>
                             <div className="bookTicketMovie--screen">
-                                <img src={Screen} />
+                                <img src={Screen} alt="" />
                             </div>
                             <div className="bookTicketMovie--seats row">
                                 {(seats?seats:[]).map((seat,index)=>(

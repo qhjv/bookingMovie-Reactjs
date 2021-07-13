@@ -1,16 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React,{useState} from 'react';
-import PropTypes from 'prop-types';
-import './navBar.css'
-import logo from '../../assets/images/logo.png'
-import { Link } from 'react-router-dom';
 import { MenuItem } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-import Loading from '../../components/loading/loading';
-import { useHistory } from "react-router-dom";
 import $ from "jquery";
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import logo from '../../assets/images/logo.png';
+import Loading from '../../components/loading/loading';
+import './navBar.css';
 
 
 

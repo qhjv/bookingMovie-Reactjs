@@ -1,10 +1,9 @@
-import React ,{ useEffect,useState } from 'react';
-import PropTypes from 'prop-types';
-import './listMovieFromTheater.css'
+/* eslint-disable array-callback-return */
+import React, { useEffect, useState } from 'react';
 import axiosClient from '../../../../../../api/axiosClient';
 import { MA_NHOM } from '../../../../../../constants/constants';
-import $ from 'jquery'
 import ListMovieDate from '../listMovieDate/listMovieDate';
+import './listMovieFromTheater.css';
 
 ListMovieFromTheater.propTypes = {
     
@@ -19,9 +18,9 @@ function ListMovieFromTheater({maRap,getAndress}) {
             movieTheater.map((movie)=>{
                 movie.lstCumRap.filter((mov,index)=>{
                     if(getAndress){
-                        return mov.maCumRap == getAndress
+                        return mov.maCumRap === getAndress
                     }else{
-                        return mov.maCumRap == movieTheater[0].lstCumRap[0].maCumRap
+                        return mov.maCumRap === movieTheater[0].lstCumRap[0].maCumRap
                     }
                 }).map((mov) => {
                     setMovieFromTheater(mov.danhSachPhim)

@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import "./morePage.css"
-import imgSale1 from "../../../../assets/images/voucher2.jpg"
-import imgSale2 from "../../../../assets/images/voucher1.jpg"
-import imgSale3 from "../../../../assets/images/voucher3.jpg"
+import imgSale2 from "../../../../assets/images/voucher1.jpg";
+import imgSale1 from "../../../../assets/images/voucher2.jpg";
+import imgSale3 from "../../../../assets/images/voucher3.jpg";
+import "./morePage.css";
 import SlideSale from './slideSale';
 
 

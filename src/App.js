@@ -1,31 +1,25 @@
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Redirect, Route, Switch } from 'react-router';
 import './App.css';
-import {useState,useEffect} from 'react';
-import './assets/css/reponsive.css'
+import './assets/css/reponsive.css';
+import Page404 from './components/404page/404Page';
 import HomePage from './components/homePage/homePage';
+import Loading from './components/loading/loading';
+import ScrollTop from './components/scrollTop/scrollTop';
 import LogIn from './features/auth/login/login';
 import LogOut from './features/auth/logout/logout';
-import DieuHuongURL from './routes/dieuHuongURL';
 import BookingMoviePage from './features/bookingMoviePage/bookingMoviePage';
-import { Redirect, Route, Switch, useRouteMatch } from 'react-router';
-import { useSelector } from 'react-redux';
-import Page404 from './components/404page/404Page';
-import Loading from './components/loading/loading';
 import DetailMoviePage from './features/detailMoviePage/detailMoviePage';
-import TicketRoomPage from './features/ticketRoomPage/ticketRoomPage';
 import HistoryBookTicket from './features/historyBookTicket/historyBookTicket';
-import "./scroll"
-import ScrollTop from './components/scrollTop/scrollTop';
-
+import TicketRoomPage from './features/ticketRoomPage/ticketRoomPage';
+import "./scroll";
 function App() {
   const [user, setUser] = useState('');
-  const [toggleForm, setToggleForm] =  useState(true);
   const userStore = useSelector(state=>state.user)
   const [loading,setLoading]=useState(false)
 
 
-  const formMode = () => {
-    setToggleForm(!toggleForm);
-  }
   const userState=()=>{
     const data= localStorage.getItem('user');
     const us = data !== null ? JSON.parse(data):null

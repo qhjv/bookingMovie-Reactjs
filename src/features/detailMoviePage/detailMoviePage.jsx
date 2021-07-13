@@ -1,16 +1,13 @@
-import React,{ useState} from 'react';
-import PropTypes from 'prop-types';
-import './detailMoviePage.css'
-import movieImg from "../../../src/assets/images/movie4.jpg"
-import imgCast from "../../../src/assets/images/anh34.jpg"
-import { useRouteMatch } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { Breadcrumbs, MenuItem, Typography } from '@material-ui/core';
+import { Breadcrumbs, Typography } from '@material-ui/core';
+import React from 'react';
+import { Link, useRouteMatch } from 'react-router-dom';
+import imgCast from "../../../src/assets/images/anh34.jpg";
+import Footer from '../../components/footer/footer';
 import Loading from '../../components/loading/loading';
 import NavBar from '../../components/navbar/navBar';
 import useMovieDetail from '../../hooks/useMovieDetail';
 import DetailBookMovie from './detailBookMovie/detailBookMovie';
-import Footer from '../../components/footer/footer';
+import './detailMoviePage.css';
 
 DetailMoviePage.propTypes = {
     
@@ -37,7 +34,7 @@ function DetailMoviePage(props) {
                         </div>
                         <div className="detailPage--first row">
                             <div className="detailPage--first__img col-md-4 col-lg-4">
-                                <img src={movie.hinhAnh} />
+                                <img src={movie.hinhAnh} alt="" />
                             </div>
                             <div className="detailPage--first__trailer col-md-8 col-lg-8">
                                 <iframe width="100%" height="100%" src={movie.trailer} title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
@@ -55,7 +52,7 @@ function DetailMoviePage(props) {
                                 <div className="detailPage--info-title">Diễn viên</div>
                                 <div className="detailPage--info__cast">
                                     <div className="detailPage--info__cast-img">
-                                        <img src={imgCast} />
+                                        <img src={imgCast} alt="" />
                                     </div>
                                     <div className="detailPage--info__cast-name">Quang Huy</div>
                                 </div>

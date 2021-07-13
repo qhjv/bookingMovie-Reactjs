@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import Swal from 'sweetalert2';
 

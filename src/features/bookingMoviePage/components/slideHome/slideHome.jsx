@@ -1,21 +1,19 @@
-import React,{useState} from 'react';
-import PropTypes from 'prop-types';
-import './slideHome.css'
-import movie1 from '../../../../assets/mp4/movie1.mp4'
-import movie2 from '../../../../assets/mp4/movie2.mp4'
-import movie3 from '../../../../assets/mp4/movie3.mp4'
+import React from 'react';
+import "swiper/components/navigation/navigation.min.css";
+import "swiper/components/pagination/pagination.min.css";
+// import Swiper core and required modules
+import SwiperCore, {
+    Autoplay, Navigation, Pagination
+} from 'swiper/core';
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/swiper.min.css";
-import "swiper/components/pagination/pagination.min.css"
-import "swiper/components/navigation/navigation.min.css"
-import Dialog from '@material-ui/core/Dialog';
-
-// import Swiper core and required modules
-import SwiperCore, {
-    Autoplay, Pagination, Navigation
-} from 'swiper/core';
+import movie1 from '../../../../assets/mp4/movie1.mp4';
+import movie2 from '../../../../assets/mp4/movie2.mp4';
+import movie3 from '../../../../assets/mp4/movie3.mp4';
 import TrailerView from '../../../../components/trailerView/trailerView';
+import './slideHome.css';
+
 
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);

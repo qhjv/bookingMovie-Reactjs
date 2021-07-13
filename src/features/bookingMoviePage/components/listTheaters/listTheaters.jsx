@@ -1,11 +1,10 @@
-import React,{useEffect,useState} from 'react';
-import PropTypes from 'prop-types';
-import './listTheaters.css'
-import theatersApi from '../../../../api/theatersApi'
-import $ from 'jquery'
-import ListTheaterName from './components/listTheaterName/listTheaterName';
-import ListMovieFromTheater from './components/listMovieFromTheater/listMovieFromTheater';
+import $ from 'jquery';
+import React, { useEffect, useState } from 'react';
+import theatersApi from '../../../../api/theatersApi';
 import Loading from '../../../../components/loading/loading';
+import ListMovieFromTheater from './components/listMovieFromTheater/listMovieFromTheater';
+import ListTheaterName from './components/listTheaterName/listTheaterName';
+import './listTheaters.css';
 
 
 ListTheaters.propTypes = {
@@ -55,10 +54,10 @@ function ListTheaters(props) {
             {loading ? (<Loading  onLoad={loading} />): (<></>)}
                 <div className="theaters row">
                     {(listTheater?listTheater:[]).map((theater,index)=>(
-                        <div key={theater.maHeThongRap} className={ index == 0  ? "theater col-md-2 active col-lg-2": "theater col-md-2 col-lg-2"}
+                        <div key={theater.maHeThongRap} className={ index === 0  ? "theater col-md-2 active col-lg-2": "theater col-md-2 col-lg-2"}
                             onClick={()=>handleClickChooseTheaters(theater.maHeThongRap,index)}    
                         >
-                            <img src={theater.logo} />
+                            <img src={theater.logo} alt=""/>
                         </div>
                     ))}
                 </div>

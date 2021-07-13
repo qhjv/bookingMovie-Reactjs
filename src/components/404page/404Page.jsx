@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import "./404page.css"
 import errorImg from "../../assets/images/404page.png"
 import { useHistory } from "react-router-dom";

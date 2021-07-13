@@ -1,7 +1,6 @@
-import React,{useState} from 'react';
-import PropTypes from 'prop-types';
-import "./scrollTop.css"
-import $ from "jquery"
+import $ from "jquery";
+import React from 'react';
+import "./scrollTop.css";
 
 ScrollTop.propTypes = {
     

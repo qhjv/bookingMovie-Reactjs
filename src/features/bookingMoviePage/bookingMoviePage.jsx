@@ -1,18 +1,16 @@
-import React,{useState} from 'react';
-import PropTypes from 'prop-types';
-import './bookingMoviePage.css'
-import {Button, makeStyles} from '@material-ui/core';
+import $ from 'jquery';
+import React from 'react';
+import img1 from '../../../src/assets/images/tap2.png';
+import Contact from '../../components/contact/contact';
+import Footer from '../../components/footer/footer';
 import NavBar from '../../components/navbar/navBar';
-import SlideHome from './components/slideHome/slideHome';
+import './bookingMoviePage.css';
+import AppPage from './components/appPage/appPage';
 import ListMovie from './components/listMovie/listMovie';
 import ListMovieNow from './components/listMovieNow/listMovieNow';
-import img1 from '../../../src/assets/images/tap2.png'
-import $ from 'jquery'
 import ListTheaters from './components/listTheaters/listTheaters';
 import MorePage from './components/morePage/morePage';
-import AppPage from './components/appPage/appPage';
-import Footer from '../../components/footer/footer';
-import Contact from '../../components/contact/contact';
+import SlideHome from './components/slideHome/slideHome';
 
 
 BookingMoviePage.propTypes = {
@@ -21,7 +19,6 @@ BookingMoviePage.propTypes = {
 
 function BookingMoviePage(props) {
     
-    const vitriMH = $(window).scrollTop()
     $(window).on("scroll",function(){
         if($(this).scrollTop() >600){
             $(".bookTheater").addClass("hien")

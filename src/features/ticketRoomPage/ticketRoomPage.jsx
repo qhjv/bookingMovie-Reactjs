@@ -1,28 +1,26 @@
-import React,{useState , useEffect} from 'react';
-import PropTypes from 'prop-types';
-import "./ticketRoomPage.css"
-import NavBar from '../../components/navbar/navBar';
-import { makeStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import StepContent from '@material-ui/core/StepContent';
-import Button from '@material-ui/core/Button';
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Breadcrumbs, Typography } from '@material-ui/core';
-import { Link, useRouteMatch } from 'react-router-dom';
-import TicketChooseSeats from './components/ticketChooseSeats/ticketChooseSeats';
-import useTicketInfo from "../../hooks/useTicketInfo"
-import Loading from "../../components/loading/loading"
-import { useSelector } from 'react-redux';
-import Swal from "sweetalert2";
-import { useDispatch } from 'react-redux';
-import PayPal from './components/ticketPay/paypal';
+import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
-import { useHistory } from "react-router-dom";
-import $ from "jquery";
-import { ticketBooked } from './bookedClient';
+import Step from '@material-ui/core/Step';
+import StepContent from '@material-ui/core/StepContent';
+import StepLabel from '@material-ui/core/StepLabel';
+import Stepper from '@material-ui/core/Stepper';
+import { makeStyles } from '@material-ui/core/styles';
 import { unwrapResult } from '@reduxjs/toolkit';
+import $ from "jquery";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import Swal from "sweetalert2";
 import Footer from '../../components/footer/footer';
+import Loading from "../../components/loading/loading";
+import NavBar from '../../components/navbar/navBar';
+import useTicketInfo from "../../hooks/useTicketInfo";
+import { ticketBooked } from './bookedClient';
+import TicketChooseSeats from './components/ticketChooseSeats/ticketChooseSeats';
+import PayPal from './components/ticketPay/paypal';
+import "./ticketRoomPage.css";
 
 
 
@@ -314,7 +312,7 @@ function TicketRoomPage(props) {
                         <div className="bookTicketMovie--right col-md-3 col-lg-3">
                             <div className="bookTicketMovie--infoMovie">
                                 <div className="bookTicketMovie--img bookTicketMovie--right_list">
-                                    <img src={(ticket.thongTinPhim?ticket.thongTinPhim:{}).hinhAnh} />
+                                    <img src={(ticket.thongTinPhim?ticket.thongTinPhim:{}).hinhAnh} alt=""/>
                                 </div>
                                 <div className="bookTicketMovie--right_list bookTicketMovie--nameMovie ">
                                     <div className="detailPage--info__detail-left">Tên phim :</div>

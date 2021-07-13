@@ -1,6 +1,5 @@
+import $ from "jquery";
 import React from 'react';
-import PropTypes from 'prop-types';
-import $ from "jquery"
 import { Link } from 'react-router-dom';
 
 ListMovieDate.propTypes = {

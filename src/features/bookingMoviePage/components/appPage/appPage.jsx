@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import applestore from "../../../../assets/images/app-store.png";
 import chplay from "../../../../assets/images/google-play.png";

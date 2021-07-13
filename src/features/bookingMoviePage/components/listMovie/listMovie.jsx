@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
 import $ from "jquery";
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -74,7 +76,7 @@ function ListMovie(props) {
                                         {movie.danhGia}/10 <i className="fas fa-star" />
                                     </div>
                                     <div className="listMovie--img d-flex align-items-center justify-content-center">
-                                        <img className="listMovie--img" src={movie.hinhAnh} />
+                                        <img className="listMovie--img" src={movie.hinhAnh} alt="" />
                                     </div>
                                     <div className="listMovie--action">
                                         <div className="listmovie--name ">
@@ -125,7 +127,7 @@ function ListMovie(props) {
                                             {movie.danhGia}/10 <i className="fas fa-star" />
                                         </div>
                                         <div className="listMovie--img d-flex align-items-center justify-content-center">
-                                            <img className="listMovie--img" src={movie.hinhAnh} />
+                                            <img className="listMovie--img" src={movie.hinhAnh} alt="" />
                                         </div>
                                         <div className="listMovie--action">
                                             <div className="listmovie--name ">

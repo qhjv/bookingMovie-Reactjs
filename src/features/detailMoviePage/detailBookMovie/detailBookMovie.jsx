@@ -1,8 +1,8 @@
-import React,{useState,useEffect} from 'react';
-import PropTypes from 'prop-types';
-import "./detailBookMovie.css"
+/* eslint-disable array-callback-return */
+import React, { useEffect, useState } from 'react';
 import DetailBookDate from './components/detailBookDate/detailBookDate';
 import DetailBookHour from './components/detailBookHour/detailBookHour';
+import "./detailBookMovie.css";
 
 DetailBookMovie.propTypes = {
     

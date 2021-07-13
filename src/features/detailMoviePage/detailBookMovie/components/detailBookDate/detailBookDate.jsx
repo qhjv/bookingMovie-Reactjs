@@ -1,6 +1,6 @@
-import React,{useState,useEffect} from 'react';
-import PropTypes from 'prop-types';
-import $ from "jquery"
+/* eslint-disable array-callback-return */
+import $ from "jquery";
+import React from 'react';
 
 
 DetailBookDate.propTypes = {
@@ -8,27 +8,27 @@ DetailBookDate.propTypes = {
 };
 
 function DetailBookDate(props) {
-    const {lich,hethongrapchieu} = props
+    const {lich} = props
 
 
     const handleDate = (value) =>{
-        if(value==0){
+        if(value === 0){
             return "Chủ nhật"
-        }else if(value==1){
+        }else if(value === 1){
             return "Thứ hai"
-        }else if(value==2){
+        }else if(value === 2){
             return "Thứ ba"
         }
-        else if(value==3){
+        else if(value === 3){
             return "Thứ tư"
         }
-        else if(value==4){
+        else if(value === 4){
             return "Thứ năm"
         }
-        else if(value==5){
+        else if(value === 5){
             return "Thứ sáu"
         }
-        else if(value==6){
+        else if(value === 6){
             return "Thứ bảy"
         }
     }

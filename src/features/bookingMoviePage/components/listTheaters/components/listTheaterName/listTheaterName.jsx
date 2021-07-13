@@ -1,9 +1,8 @@
-import React,{useEffect,useState} from 'react';
-import PropTypes from 'prop-types';
-import './listTheaterName.css'
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
 import theaterListApi from '../../../../../../api/theaterListApi';
-import { ContactlessOutlined } from '@material-ui/icons';
-import axiosClient from '../../../../../../api/axiosClient';
+import './listTheaterName.css';
 
 ListTheaterName.propTypes = {
     

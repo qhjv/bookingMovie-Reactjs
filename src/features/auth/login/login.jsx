@@ -1,21 +1,19 @@
-import React,{useState,useEffect} from 'react';
-import PropTypes from 'prop-types';
-import {Container,IconButton , CssBaseline , Avatar, makeStyles, Card, CardContent, Typography, FormControlLabel, Checkbox ,Button, Grid, CircularProgress  } from '@material-ui/core'
-import { LockRounded} from '@material-ui/icons'
-import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
-import {ToastContainer, toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
-import './login.css'
-import { Link } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
-import logo from '../../../assets/images/logo.png'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { Button, IconButton } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import Loading from '../../../components/loading/loading';
-import { useDispatch } from 'react-redux';
-import {userStore} from './loginSlice'
-import firebase from '../../../helpers/db';
 import "firebase/auth";
+import React, { useState } from 'react';
+import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
+import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import logo from '../../../assets/images/logo.png';
+import Loading from '../../../components/loading/loading';
+import firebase from '../../../helpers/db';
+import './login.css';
+import { userStore } from './loginSlice';
 
 
 

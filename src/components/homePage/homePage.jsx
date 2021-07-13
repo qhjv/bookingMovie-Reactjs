@@ -1,13 +1,12 @@
-import React,{useState,useEffect} from 'react';
-import PropTypes from 'prop-types';
-import './homePage.css'
-import logo from '../../assets/images/logo.png'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from 'react';
 import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
-import Loading from '../loading/loading';
-import { Link } from 'react-router-dom';
-import { Route, useHistory, useRouteMatch } from 'react-router';
 import { useDispatch } from 'react-redux';
-import {emailGet} from './homePageSlice'
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/images/logo.png';
+import './homePage.css';
+import { emailGet } from './homePageSlice';
 
 
 HomePage.propTypes = {
