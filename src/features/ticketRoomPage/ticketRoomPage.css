@@ -68,9 +68,11 @@ button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-contained
   .MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-6,
 button.MuiButtonBase-root.MuiButton-root.MuiButton-text{
   background: #ffffff !important;
+  margin-top: 70px !important;
 }
 button.MuiButtonBase-root.MuiButton-root.MuiButton-text {
     background: #fff;
+    margin-top: 70px !important;
 }
 button.MuiButtonBase-root.MuiButton-root.MuiButton-text.makeStyles-button-2.Mui-disabled.Mui-disabled,
 .MuiButton-root.Mui-disabled {
