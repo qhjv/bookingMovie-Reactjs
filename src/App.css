@@ -73,6 +73,6 @@ a:focus, a:hover {
 .MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline {
     border: none!important;
 }
-fieldset.jss1.MuiOutlinedInput-notchedOutline {
+fieldset.MuiOutlinedInput-notchedOutline {
     border: none!important;
 }
